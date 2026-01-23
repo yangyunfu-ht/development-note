@@ -1,0 +1,52 @@
+---
+# https://vitepress.dev/reference/default-theme-home-page
+layout: home
+
+hero:
+  text: "构建你的前端知识体系"
+  tagline: "汇集 Javascript, Vue, React, 工程化等全栈技术笔记"
+  actions:
+    - theme: brand
+      text: 开始阅读
+      link: /javascript
+    - theme: alt
+      text: GitHub 源码
+      link: https://github.com/
+
+features:
+  - title: Javascript
+    details: Web 的核心语言，支持交互式和动态内容。
+    link: /javascript
+
+  - title: Typescript
+    details: JavaScript 的强类型超集，编译为纯 JavaScript。
+    link: /typescript
+
+  - title: Css3
+    details: 层叠样式表语言的最新演进，用于网页样式设计。
+    link: /css3
+
+  - title: Html5
+    details: 超文本标记语言的最新版本，用于构建 Web 内容。
+    link: /html5
+
+  - title: Vue3
+    details: 用于构建用户界面的渐进式 JavaScript 框架。
+    link: /vue3
+
+  - title: React
+    details: 用于构建基于组件的用户界面的 JavaScript 库。
+    link: /react
+
+  - title: MiniProgram
+    details: 在微信或支付宝等宿主应用中运行的轻量级应用程序。
+    link: /miniprogram
+
+  - title: Vite
+    details: 下一代前端工具链，具有即时服务启动和极速 HMR。
+    link: /vite
+
+  - title: Webpack
+    details: 用于现代 JavaScript 应用程序的静态模块打包工具。
+    link: /webpack
+---
