@@ -4,6 +4,8 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Markdown Note",
   description: "构建你的前端知识体系",
+  // TODO: 如果部署到 github pages，请设置 base 为你的仓库名称，例如 "/my-repo/"
+  base: "/development-note/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
