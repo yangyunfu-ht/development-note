@@ -16,6 +16,7 @@ import EventLoop from './components/eventLoop.md'
 import ClassDoc from './components/class.md'
 import Debounce from './components/debounce.md'
 import Throttle from './components/throttle.md'
+import CodeDoc from './components/code.md'
 </script>
 
 <!-- ## var / let / const -->
@@ -41,6 +42,9 @@ import Throttle from './components/throttle.md'
 <!-- ## 原型链 (Prototype Chain) -->
 
 <PrototypeChain />
+
+<!-- ## call/apply/bind 区别 -->
+<CallApplyBind />
 
 <!-- ## 事件循环 (Event Loop) -->
 

@@ -5,7 +5,6 @@ export default defineConfig({
   title: "Markdown Note",
   description: "构建你的前端知识体系",
   // TODO: 如果部署到 github pages，请设置 base 为你的仓库名称，例如 "/my-repo/"
-  base: "/development-note/",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -81,6 +80,10 @@ export default defineConfig({
                 link: "/javascript/components/prototypeChain",
               },
               {
+                text: "call/apply/bind 区别",
+                link: "/javascript/components/callApplyBind",
+              },
+              {
                 text: "事件循环 (Event Loop)",
                 link: "/javascript/components/eventLoop",
               },
@@ -107,6 +110,10 @@ export default defineConfig({
               {
                 text: "节流 (Throttle)",
                 link: "/javascript/components/throttle",
+              },
+              {
+                text: "高频手写题 (Handwritten Code)",
+                link: "/javascript/components/code",
               },
             ],
           },

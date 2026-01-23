@@ -97,21 +97,3 @@ getType([]); // "Array"
 getType({}); // "Object"
 getType(new Date()); // "Date"
 ```
-
-#### (4) 手写实现instanceOf
-
-```javascript
-function myInstanceOf(left, right) {
-  if (typeof left !== "object" || left === null) {
-    return false;
-  }
-  let proto = left.__proto__;
-  while (proto !== null) {
-    if (proto === right.prototype) {
-      return true;
-    }
-    proto = proto.__proto__;
-  }
-  return false;
-}
-```
