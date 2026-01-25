@@ -45,7 +45,7 @@ export default defineConfig({
         items: [
           {
             text: "Vite",
-            items: [{ text: "基础配置", link: "/vite/config" }],
+            link: "/vite/config"
           },
           { text: "Webpack", link: "/webpack/config" },
           { text: "Prettier", link: "/prettier/" },
@@ -280,6 +280,7 @@ export default defineConfig({
           { text: "虚拟 DOM 详解", link: "/what/virtualDom" },
           { text: "esm、umd、cmd区别", link: "/what/esmUmdCmd" },
           { text: "monorepo(单体仓库)", link: "/what/monorepo" },
+          { text: "Tree Shaking 详解", link: "/what/treeShaking" },
           {
             text: "Vite",
             link: "/vite/config",
@@ -287,6 +288,10 @@ export default defineConfig({
               {
                 text: "基础配置",
                 link: "/vite/config",
+              },
+              {
+                text: "CommonJS 模块处理",
+                link: "/vite/resolveCommon",
               },
             ],
           },
@@ -324,6 +329,25 @@ export default defineConfig({
               {
                 text: "浏览器兼容性解决方案",
                 link: "/scene/legacy",
+              },
+            ],
+          },
+          {
+            text: "HTTP 协议",
+            link: "/http/",
+            collapsed: true,
+            items: [
+              {
+                text: "HTTP 状态码详解",
+                link: "/http/",
+              },
+              {
+                text: "GET 和 POST 的区别",
+                link: "/http/getPost",
+              },
+              {
+                text: "HTTP 请求头详解",
+                link: "/http/requestHeader",
               },
             ],
           },

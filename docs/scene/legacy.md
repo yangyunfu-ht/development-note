@@ -99,15 +99,15 @@ export default defineConfig({
 
 Webpack 需要显式配置 loader 链来处理 PostCSS。
 
-#### 步骤 1: 安装 Webpack 相关依赖
+### 步骤 1: 安装依赖
 
 ```bash
-pnpm add -D postcss postcss-loader autoprefixer css-loader style-loader
+pnpm add -D postcss-loader autoprefixer css-loader style-loader
 ```
 
-### 步骤 2: 配置 webpack.config.js
+### 步骤 2: 配置 Webpack
 
-注意 loader 的执行顺序是从右到左（从下到上）：`style-loader` <- `css-loader` <- `postcss-loader`。
+在 `webpack.config.js` 中配置 module rules：
 
 ```javascript
 // webpack.config.js
@@ -117,10 +117,10 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          "style-loader", // 3. 将 JS 字符串生成为 style 节点
-          "css-loader", // 2. 将 CSS 转化成 CommonJS 模块
+          "style-loader",
+          "css-loader",
           {
-            loader: "postcss-loader", // 1. 处理 CSS 兼容性
+            loader: "postcss-loader",
             options: {
               postcssOptions: {
                 plugins: [["autoprefixer"]],
@@ -133,6 +133,41 @@ module.exports = {
   },
 };
 ```
+
+## 4. 统一配置中心：Browserslist
+
+无论是 Babel 还是 PostCSS，它们都需要知道"目标浏览器是哪些"。`Browserslist` 就是这样一个统一的配置源。
+
+推荐在 `package.json` 中配置，这样所有工具（Babel, PostCSS, ESLint 等）都能共享同一套规则。
+
+```json
+// package.json
+{
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8",
+    "iOS >= 10",
+    "Android >= 4.4"
+  ]
+}
+```
+
+### 常用查询语法
+
+| 规则              | 含义                       |
+| :---------------- | :------------------------- |
+| `> 1%`            | 全球使用率大于 1% 的浏览器 |
+| `last 2 versions` | 所有浏览器的最后两个版本   |
+| `not dead`        | 排除已停止维护的浏览器     |
+| `iOS >= 10`       | iOS Safari 版本大于等于 10 |
+
+## 5. 最佳实践总结
+
+1.  **统一配置**: 使用 `browserslist` 统一管理目标浏览器范围。
+2.  **按需 Polyfill**: 使用 `@babel/preset-env` 的 `useBuiltIns: 'usage'` 选项，只打包代码中实际用到的 Polyfill，减少包体积。
+3.  **自动化**: 利用 Vite/Webpack 的生态插件（如 `autoprefixer`）自动处理 CSS 兼容性，不要手动写前缀。
+4.  **渐进增强**: 对于极低版本浏览器（如 IE），如果非必要，可以考虑提示用户升级，而不是无限增加 Polyfill 体积。
 
 > **推荐做法**：建议将 PostCSS 配置提取到单独的 `postcss.config.js` 文件中，这样 `webpack.config.js` 中的 loader 配置只需写成 `loader: 'postcss-loader'` 即可，保持配置清洁。
 
@@ -168,8 +203,8 @@ Vite 默认构建目标是支持原生 ESM 的现代浏览器。如果需要支�
 **工作原理**:
 
 1. 构建出两套代码：
-    - **Modern Bundle**: 针对现代浏览器，使用 `<script type="module">` 加载，体积小，效率高。
-    - **Legacy Bundle**: 针对旧版浏览器，包含完整的 Polyfill 和语法降级代码，使用 `<script nomodule>` 加载。
+   - **Modern Bundle**: 针对现代浏览器，使用 `<script type="module">` 加载，体积小，效率高。
+   - **Legacy Bundle**: 针对旧版浏览器，包含完整的 Polyfill 和语法降级代码，使用 `<script nomodule>` 加载。
 2. 浏览器根据是否支持 `module` 自动选择加载哪套代码。
 
 **安装**:

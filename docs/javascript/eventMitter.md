@@ -19,7 +19,7 @@
 
 ## TypeScript 实现示例
 
-下面是一个简单的 `EventEmitter` 类的实现，包含了 `on`（订阅）、`emit`（发布）、`off`（取消订阅）和 `once`（只订阅一次）方法。
+下面是一个简单的 `EventEmitter` 类的实现，包含了 `on`（订阅）、`emit`（发布）、`off`（取消订阅）和 `once`（只订阅一次）方法。我们使用 `Map` 来存储事件和回调函数的映射，相比于传统的 Object 实现，Map 在键值对的增删改查上性能更优，且避免了原型链干扰。
 
 ```typescript
 type EventHandler = (...args: any[]) => void;
@@ -51,7 +51,8 @@ class EventEmitter {
   emit(eventName: string, ...args: any[]): void {
     const callbacks = this.events.get(eventName);
     if (callbacks) {
-      callbacks.forEach((callback) => {
+      // 复制一份副本执行，防止在回调中取消订阅导致数组索引错乱
+      [...callbacks].forEach((callback) => {
         try {
           callback(...args);
         } catch (error) {
@@ -74,7 +75,7 @@ class EventEmitter {
     if (callbacks) {
       const newCallbacks = callbacks.filter((cb) => cb !== callback);
       this.events.set(eventName, newCallbacks);
-      // 如果没有订阅者了，删除该事件键
+      // 如果没有订阅者了，删除该事件键，释放内存
       if (newCallbacks.length === 0) {
         this.events.delete(eventName);
       }
@@ -91,55 +92,61 @@ class EventEmitter {
       callback(...args);
       this.off(eventName, wrapper);
     };
+    // 保存原始 callback 的引用，以便用户可以使用 off 取消未触发的 once 事件
+    (wrapper as any).originalCallback = callback;
     this.on(eventName, wrapper);
   }
 }
+```
 
-// --- 使用示例 ---
+## 使用示例
 
-// 创建实例
-const emitter = new EventEmitter();
+```typescript
+// 1. 创建实例
+const eventBus = new EventEmitter();
 
-// 定义回调函数
-const onUserLogin = (user: { name: string }) => {
-  console.log(`用户 ${user.name} 登录了 (on)`);
+// 2. 定义回调函数
+const onOrderCreated = (orderId: string) => {
+  console.log(`订单 ${orderId} 创建成功！`);
 };
 
-const onUserLoginOnce = (user: { name: string }) => {
-  console.log(`用户 ${user.name} 登录了 (once)`);
+const onUserRegistered = (username: string) => {
+  console.log(`欢迎新用户: ${username}`);
 };
 
-// 订阅事件
-emitter.on("login", onUserLogin);
-emitter.once("login", onUserLoginOnce);
+// 3. 订阅事件
+eventBus.on('order:created', onOrderCreated);
+eventBus.on('user:registered', onUserRegistered);
 
-// 发布事件
-console.log("--- 第一次发布 ---");
-emitter.emit("login", { name: "Alice" });
+// 4. 发布事件
+eventBus.emit('order:created', 'ORD-12345');
+// 输出: 订单 ORD-12345 创建成功！
 
-// 取消订阅
-emitter.off("login", onUserLogin);
+eventBus.emit('user:registered', 'Alice');
+// 输出: 欢迎新用户: Alice
 
-// 再次发布事件
-console.log("--- 第二次发布 ---");
-emitter.emit("login", { name: "Bob" });
+// 5. 只订阅一次
+eventBus.once('system:alert', (msg) => {
+  console.warn(`系统警告: ${msg}`);
+});
 
-/**
- * 输出结果:
- *
- * --- 第一次发布 ---
- * 用户 Alice 登录了 (on)
- * 用户 Alice 登录了 (once)
- *
- * --- 第二次发布 ---
- * (没有任何输出，因为 onUserLogin 被 off 了，onUserLoginOnce 执行一次后自动 off 了)
- */
+eventBus.emit('system:alert', '内存不足');
+// 输出: 系统警告: 内存不足
+
+eventBus.emit('system:alert', 'CPU 过高');
+// (无输出，因为只触发一次)
+
+// 6. 取消订阅
+eventBus.off('order:created', onOrderCreated);
+eventBus.emit('order:created', 'ORD-67890');
+// (无输出)
 ```
 
 ## 与观察者模式的区别
 
-虽然两者很相似，但发布-订阅模式和观察者模式（Observer Pattern）是有区别的：
-
-1. **调度中心**: 发布-订阅模式有一个调度中心，而观察者模式中观察者直接订阅目标对象（Subject）。
-2. **耦合度**: 发布-订阅模式更加松耦合，发布者和订阅者互不认识。观察者模式中，目标对象需要维护观察者列表。
-3. **应用场景**: 观察者模式多用于单个对象的状态变化通知；发布-订阅模式多用于跨组件、跨模块的消息通信（如 Vue 的 EventBus）。
+| 特性 | 发布-订阅模式 (Pub-Sub) | 观察者模式 (Observer) |
+| :--- | :--- | :--- |
+| **耦合度** | 松耦合（通过调度中心隔离） | 较紧耦合（Subject 直接持有 Observer 列表） |
+| **通信方式** | 借助中间件 (Event Bus) | 直接通信 |
+| **关注点** | 消息/事件本身 | 目标对象的状态变化 |
+| **典型应用** | 消息队列 (RabbitMQ), Vue EventBus | DOM 事件监听, Vue 响应式系统 (Dep/Watcher) |
