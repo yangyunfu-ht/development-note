@@ -17,7 +17,7 @@ export default defineConfig({
       {
         text: "前端基础",
         items: [
-          { text: "Javascript", link: "/javascript/constLetVar" },
+          { text: "Javascript", link: "/javascript/dataType" },
           {
             text: "Typescript",
             link: "/typescript/tsConfig",
@@ -45,7 +45,7 @@ export default defineConfig({
         items: [
           {
             text: "Vite",
-            link: "/vite/config"
+            link: "/vite/config",
           },
           { text: "Webpack", link: "/webpack/config" },
           { text: "Prettier", link: "/prettier/" },
@@ -65,36 +65,40 @@ export default defineConfig({
         items: [
           {
             text: "Javascript",
-            link: "/javascript/constLetVar",
+            link: "/javascript/dataType",
             collapsed: true,
             items: [
               {
+                text: "数据类型 (Data Types)",
+                link: "/javascript/dataType",
+              },
+              {
                 text: "var/let/const",
                 link: "/javascript/constLetVar",
+              },
+              {
+                text: "变量提升 (Hoisting)",
+                link: "/javascript/variableLifting",
               },
               {
                 text: "闭包 (Closure)",
                 link: "/javascript/closure",
               },
               {
-                text: "Math 对象与精度问题",
-                link: "/javascript/math",
-              },
-              {
-                text: "数据类型 (Data Types)",
-                link: "/javascript/dataType",
-              },
-              {
-                text: "深拷贝与浅拷贝",
-                link: "/javascript/deepClone",
+                text: "箭头函数 (Arrow Function)",
+                link: "/javascript/arrow",
               },
               {
                 text: "数组方法 (Array Methods)",
                 link: "/javascript/array",
               },
               {
-                text: "变量提升 (Hoisting)",
-                link: "/javascript/variableLifting",
+                text: "Math 对象与精度问题",
+                link: "/javascript/math",
+              },
+              {
+                text: "深拷贝与浅拷贝",
+                link: "/javascript/deepClone",
               },
               {
                 text: "原型链 (Prototype Chain)",
@@ -103,6 +107,10 @@ export default defineConfig({
               {
                 text: "call/apply/bind 区别",
                 link: "/javascript/callApplyBind",
+              },
+              {
+                text: "this 指向详解",
+                link: "/javascript/this",
               },
               {
                 text: "事件循环 (Event Loop)",
@@ -125,10 +133,6 @@ export default defineConfig({
                 link: "/javascript/class",
               },
               {
-                text: "箭头函数 (Arrow Function)",
-                link: "/javascript/arrow",
-              },
-              {
                 text: "防抖 (Debounce)",
                 link: "/javascript/debounce",
               },
@@ -143,6 +147,10 @@ export default defineConfig({
               {
                 text: "发布订阅模式 (Pub/Sub)",
                 link: "/javascript/eventMitter",
+              },
+              {
+                text: "观察者模式 (Observer Pattern)",
+                link: "/javascript/observeEmitter",
               },
             ],
           },
@@ -234,6 +242,14 @@ export default defineConfig({
                 link: "/vue3/different",
               },
               {
+                text: "Vue3 nextTick 原理",
+                link: "/vue3/nextTick",
+              },
+              {
+                text: "Vue2 数组响应式原理",
+                link: "/vue3/vue2Array",
+              },
+              {
                 text: "Vue3 KeepAlive 缓存",
                 link: "/vue3/keepAlive",
               },
@@ -281,6 +297,8 @@ export default defineConfig({
           { text: "esm、umd、cmd区别", link: "/what/esmUmdCmd" },
           { text: "monorepo(单体仓库)", link: "/what/monorepo" },
           { text: "Tree Shaking 详解", link: "/what/treeShaking" },
+          { text: "修改 npm 包代码", link: "/what/npm" },
+          { text: "移动端适配方案", link: "/what/mobile" },
           {
             text: "Vite",
             link: "/vite/config",
