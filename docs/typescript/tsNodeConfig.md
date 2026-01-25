@@ -2,7 +2,7 @@
 
 在 Vite 等现代前端项目中，`tsconfig.node.json` 专门用于配置**运行在 Node.js 环境下的代码**的编译选项。
 
-## 为什么需要 tsconfig.node.json？
+## 1. 为什么需要 tsconfig.node.json？
 
 项目中的某些文件（如 `vite.config.ts`, `vitest.config.ts` 以及自定义脚本）是运行在 Node.js 环境中的，而不是浏览器环境。
 
@@ -15,7 +15,7 @@
 
 ---
 
-## Vue 3 + Vite 配置示例
+## 2. Vue 3 + Vite 配置示例
 
 以下是 Vue 3 + Vite 项目中典型的 `tsconfig.node.json` 配置：
 
@@ -51,7 +51,7 @@
 
 ---
 
-## React + Vite 配置示例
+## 3. React + Vite 配置示例
 
 以下是 React + Vite 项目中典型的 `tsconfig.node.json` 配置：
 
@@ -78,7 +78,7 @@
 
 ---
 
-## 常见问题
+## 4. 常见问题
 
 ### 1. 为什么 `tsconfig.node.json` 中没有 `lib: ["DOM"]`？
 

@@ -1,8 +1,8 @@
-## 事件循环 (Event Loop)
+# 事件循环 (Event Loop)
 
 JavaScript 是一门**单线程**的非阻塞脚本语言。为了协调事件、用户交互、脚本、渲染、网络等，JavaScript 必须使用事件循环（Event Loop）机制来处理异步任务。
 
-### 1. 核心概念
+## 1. 核心概念
 
 - **执行栈 (Call Stack)**：
   JavaScript 引擎维护一个执行栈，用于追踪函数调用。这是一个同步过程，遵循**后进先出 (LIFO)** 原则。所有同步代码都在这里执行。
@@ -10,7 +10,7 @@ JavaScript 是一门**单线程**的非阻塞脚本语言。为了协调事件�
 - **任务队列 (Task Queue)**：
   当遇到异步操作（如 `setTimeout`, `fetch`）时，回调函数会在异步操作完成后被放入任务队列中等待执行。
 
-### 2. 宏任务与微任务
+## 2. 宏任务与微任务
 
 在事件循环中，异步任务被分为两类，它们的执行优先级不同。
 
@@ -19,7 +19,7 @@ JavaScript 是一门**单线程**的非阻塞脚本语言。为了协调事件�
 | **宏任务 (MacroTask)** | 由宿主环境（浏览器/Node）发起的任务 | `script`(整体代码), `setTimeout`, `setInterval`, `setImmediate`(Node), `requestAnimationFrame`, I/O |
 | **微任务 (MicroTask)** | 由 JavaScript 引擎发起的任务        | `Promise.then/catch/finally`, `process.nextTick`(Node), `MutationObserver`                          |
 
-### 3. 循环流程 (The Loop)
+## 3. 循环流程 (The Loop)
 
 事件循环的每一次迭代称为一个 **Tick**，其基本流程如下：
 
@@ -32,9 +32,9 @@ JavaScript 是一门**单线程**的非阻塞脚本语言。为了协调事件�
 
 > **核心口诀**：同步优先 -> 微任务清空 -> 渲染 -> 宏任务一个 -> 循环
 
-### 4. 代码实战解析
+## 4. 代码实战解析
 
-#### 示例 1：基础顺序
+### 示例 1：基础顺序
 
 ```javascript
 console.log("1"); // 同步
@@ -60,7 +60,7 @@ console.log("4"); // 同步
 
 ---
 
-#### 示例 2：综合面试题
+### 示例 2：综合面试题
 
 ```javascript
 console.log("1");

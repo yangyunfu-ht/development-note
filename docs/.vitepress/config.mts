@@ -2,20 +2,25 @@ import { defineConfig } from "vitepress";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: "zh-CN",
   title: "Markdown Note",
   description: "构建你的前端知识体系",
   // TODO: 如果部署到 github pages，请设置 base 为你的仓库名称，例如 "/my-repo/"
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    editLink: {
+      pattern: "https://github.com/yangyunfu-ht/development-note.git",
+      text: "在 GitHub 上编辑此页",
+    },
     nav: [
       { text: "首页", link: "/" },
       {
         text: "前端基础",
         items: [
-          { text: "Javascript", link: "/javascript/" },
+          { text: "Javascript", link: "/javascript/constLetVar" },
           {
             text: "Typescript",
-            link: "/typescript/",
+            link: "/typescript/tsConfig",
           },
           { text: "Html5", link: "/html5/" },
           { text: "Css3", link: "/css3/" },
@@ -26,24 +31,31 @@ export default defineConfig({
         items: [
           {
             text: "Vue3",
-            link: "/vue3/",
+            link: "/vue3/different",
           },
           { text: "React", link: "/react/" },
           {
             text: "小程序",
-            link: "/miniprogram/",
+            link: "/miniprogram/LifeCycle",
           },
         ],
       },
       {
         text: "工程化",
         items: [
-          { text: "Vite", link: "/vite/" },
-          { text: "Webpack", link: "/webpack/" },
+          {
+            text: "Vite",
+            items: [{ text: "基础配置", link: "/vite/config" }],
+          },
+          { text: "Webpack", link: "/webpack/config" },
           { text: "Prettier", link: "/prettier/" },
           { text: "Eslint", link: "/eslint/" },
           { text: "CommitLint", link: "/commitLint/" },
         ],
+      },
+      {
+        text: "场景与原理",
+        items: [{ text: "浏览器原理", link: "/scene/browser" }],
       },
     ],
 
@@ -53,73 +65,91 @@ export default defineConfig({
         items: [
           {
             text: "Javascript",
-            link: "/javascript/",
+            link: "/javascript/constLetVar",
+            collapsed: true,
             items: [
               {
                 text: "var/let/const",
-                link: "/javascript/components/constLetVar",
+                link: "/javascript/constLetVar",
+              },
+              {
+                text: "闭包 (Closure)",
+                link: "/javascript/closure",
+              },
+              {
+                text: "Math 对象与精度问题",
+                link: "/javascript/math",
               },
               {
                 text: "数据类型 (Data Types)",
-                link: "/javascript/components/dataType",
+                link: "/javascript/dataType",
               },
               {
                 text: "深拷贝与浅拷贝",
-                link: "/javascript/components/deepClone",
+                link: "/javascript/deepClone",
               },
               {
                 text: "数组方法 (Array Methods)",
-                link: "/javascript/components/array",
+                link: "/javascript/array",
               },
               {
                 text: "变量提升 (Hoisting)",
-                link: "/javascript/components/variableLifting",
+                link: "/javascript/variableLifting",
               },
               {
                 text: "原型链 (Prototype Chain)",
-                link: "/javascript/components/prototypeChain",
+                link: "/javascript/prototypeChain",
               },
               {
                 text: "call/apply/bind 区别",
-                link: "/javascript/components/callApplyBind",
+                link: "/javascript/callApplyBind",
               },
               {
                 text: "事件循环 (Event Loop)",
-                link: "/javascript/components/eventLoop",
+                link: "/javascript/eventLoop",
               },
               {
                 text: "异步编程 (Promise)",
-                link: "/javascript/components/promise",
+                link: "/javascript/promise",
               },
               {
                 text: "手写 Promise (Implement Promise)",
-                link: "/javascript/components/implementPromise",
+                link: "/javascript/implementPromise",
               },
               {
                 text: "树形结构操作 (Tree Function)",
-                link: "/javascript/components/treeFunction",
+                link: "/javascript/treeFunction",
               },
               {
                 text: "ES6 Class 类",
-                link: "/javascript/components/class",
+                link: "/javascript/class",
+              },
+              {
+                text: "箭头函数 (Arrow Function)",
+                link: "/javascript/arrow",
               },
               {
                 text: "防抖 (Debounce)",
-                link: "/javascript/components/debounce",
+                link: "/javascript/debounce",
               },
               {
                 text: "节流 (Throttle)",
-                link: "/javascript/components/throttle",
+                link: "/javascript/throttle",
               },
               {
                 text: "高频手写题 (Handwritten Code)",
-                link: "/javascript/components/code",
+                link: "/javascript/code",
+              },
+              {
+                text: "发布订阅模式 (Pub/Sub)",
+                link: "/javascript/eventMitter",
               },
             ],
           },
           {
             text: "Typescript",
-            link: "/typescript/",
+            link: "/typescript/tsConfig",
+            collapsed: true,
             items: [
               {
                 text: "TS 配置详解 (tsconfig)",
@@ -137,10 +167,58 @@ export default defineConfig({
                 text: "TS 内置类型 (Built-in Types)",
                 link: "/typescript/buildInTypes",
               },
+              {
+                text: "TS 增量编译详解",
+                link: "/typescript/IncrementalCompilation",
+              },
             ],
           },
-          { text: "Html5", link: "/html5/" },
-          { text: "Css3", link: "/css3/" },
+          {
+            text: "Html5",
+            link: "/html5/tag",
+            collapsed: true,
+            items: [
+              {
+                text: "HTML5 新特性",
+                link: "/html5/tag",
+              },
+              {
+                text: "DOM 事件机制",
+                link: "/html5/event",
+              },
+            ],
+          },
+          {
+            text: "Css3",
+            link: "/css3/flex",
+            collapsed: true,
+            items: [
+              {
+                text: "CSS3 新特性一览",
+                link: "/css3/",
+              },
+              {
+                text: "选择器权重 (Specificity)",
+                link: "/css3/selectorWeight",
+              },
+              {
+                text: ":is() 与 :where()",
+                link: "/css3/whersIs",
+              },
+              {
+                text: "Flex 布局详解",
+                link: "/css3/flex",
+              },
+              {
+                text: "水平垂直居中方案",
+                link: "/css3/center",
+              },
+              {
+                text: "CSS 盒模型",
+                link: "/css3/box",
+              },
+            ],
+          },
         ],
       },
       {
@@ -148,18 +226,38 @@ export default defineConfig({
         items: [
           {
             text: "Vue3",
-            link: "/vue3/",
+            link: "/vue3/different",
+            collapsed: true,
             items: [
               {
                 text: "Vue2 与 Vue3 区别",
                 link: "/vue3/different",
               },
+              {
+                text: "Vue3 KeepAlive 缓存",
+                link: "/vue3/keepAlive",
+              },
+              {
+                text: "Vue3 高频面试题",
+                link: "/vue3/interview",
+              },
             ],
           },
-          { text: "React", link: "/react/" },
+          {
+            text: "React",
+            link: "/react/functionClass",
+            collapsed: true,
+            items: [
+              {
+                text: "函数式组件 vs 类组件",
+                link: "/react/functionClass",
+              },
+            ],
+          },
           {
             text: "小程序",
-            link: "/miniprogram/",
+            link: "/miniprogram/LifeCycle",
+            collapsed: true,
             items: [
               {
                 text: "生命周期与配置",
@@ -171,20 +269,98 @@ export default defineConfig({
       },
       {
         text: "工程化",
+        link: "/what/",
+        collapsed: true,
         items: [
-          { text: "Vite", link: "/vite/" },
-          { text: "Webpack", link: "/webpack/" },
+          { text: "什么是前端工程化", link: "/what/" },
+          { text: "JS 模块化发展历程", link: "/what/jsModule" },
+          { text: "前端性能优化体系", link: "/what/performance" },
+          { text: "SPA 首屏优化 (FCP)", link: "/what/FCP" },
+          { text: "SEO 与 SPA 优化", link: "/what/seo" },
+          { text: "虚拟 DOM 详解", link: "/what/virtualDom" },
+          { text: "esm、umd、cmd区别", link: "/what/esmUmdCmd" },
+          { text: "monorepo(单体仓库)", link: "/what/monorepo" },
+          {
+            text: "Vite",
+            link: "/vite/config",
+            items: [
+              {
+                text: "基础配置",
+                link: "/vite/config",
+              },
+            ],
+          },
+          {
+            text: "Webpack",
+            link: "/webpack/config",
+            collapsed: true,
+            items: [
+              { text: "基础配置", link: "/webpack/config" },
+              { text: "Loader 与 Plugin", link: "/webpack/loaderPlugin" },
+            ],
+          },
           { text: "Rollup", link: "/rollup/" },
           { text: "Prettier(代码风格)", link: "/prettier/" },
           { text: "Eslint(代码质量)", link: "/eslint/" },
           { text: "CommitLint(git提交规范)", link: "/commitLint/" },
         ],
       },
+      {
+        text: "浏览器与网络",
+        items: [
+          {
+            text: "浏览器原理",
+            link: "/scene/browser",
+            collapsed: true,
+            items: [
+              {
+                text: "从输入 URL 到页面渲染",
+                link: "/scene/browser",
+              },
+              {
+                text: "浏览器存储详解",
+                link: "/scene/storage",
+              },
+              {
+                text: "浏览器兼容性解决方案",
+                link: "/scene/legacy",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        text: "代码管理",
+        items: [
+          {
+            text: "Git版本控制",
+            link: "/git/",
+            collapsed: true,
+            items: [
+              { text: "常用命令", link: "/git/" },
+              { text: "SSH Key 配置", link: "/git/sshKey" },
+            ],
+          },
+        ],
+      },
     ],
 
     socialLinks: [
-      { icon: "github", link: "https://github.com/vuejs/vitepress" },
+      {
+        icon: "github",
+        link: "https://github.com/yangyunfu-ht/development-note.git",
+      },
     ],
+
+    footer: {
+      message: "Released under the MIT License.",
+      copyright: "Copyright © 2026-present yyf",
+    },
+
+    docFooter: {
+      prev: "上一页",
+      next: "下一页",
+    },
 
     search: {
       provider: "local",

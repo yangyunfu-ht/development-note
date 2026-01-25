@@ -1,10 +1,10 @@
-## JavaScript 数据类型
+# JavaScript 数据类型
 
 JavaScript 是一种**弱类型**（或称动态类型）语言，这意味着变量没有类型限制，可以随时赋予不同类型的值。
 
 JavaScript 的数据类型分为两大类：**基本数据类型 (Primitive)** 和 **引用数据类型 (Reference)**。
 
-### 1. 基本数据类型
+## 1. 基本数据类型
 
 基本数据类型存储在**栈内存 (Stack)** 中，占据固定大小的空间。目前共有 7 种：
 
@@ -18,7 +18,7 @@ JavaScript 的数据类型分为两大类：**基本数据类型 (Primitive)** �
 | **Symbol**    | (ES6) 唯一标识符         | `Symbol('id')`       |
 | **BigInt**    | (ES10) 任意精度的整数    | `123n`               |
 
-### 2. 引用数据类型
+## 2. 引用数据类型
 
 引用数据类型存储在**堆内存 (Heap)** 中，栈内存中只存储了一个指向堆内存的**指针**（地址）。
 
@@ -28,7 +28,7 @@ JavaScript 的数据类型分为两大类：**基本数据类型 (Primitive)** �
   - `Date`
   - `RegExp`
 
-### 3. 存储区别：栈 vs 堆
+## 3. 存储区别：栈 vs 堆
 
 - **基本类型**：直接存储值。赋值时是**值拷贝**，互不影响。
 - **引用类型**：存储的是引用地址。赋值时是**地址拷贝**，修改新变量会影响原变量。
@@ -47,9 +47,9 @@ obj2.name = "Bob";
 console.log(obj1.name); // "Bob" (受影响)
 ```
 
-### 4. 类型检测
+## 4. 类型检测
 
-#### (1) typeof
+### (1) typeof
 
 适用于检测基本类型（除了 `null`）。
 
@@ -69,7 +69,7 @@ typeof []; // "object"
 typeof {}; // "object"
 ```
 
-#### (2) instanceof
+### (2) instanceof
 
 用于检测引用类型，判断构造函数的 `prototype` 属性是否出现在某个实例对象的原型链上。
 
@@ -82,7 +82,7 @@ new Date() instanceof Date // true
 123 instanceof Number      // false
 ```
 
-#### (3) Object.prototype.toString.call() (推荐)
+### (3) Object.prototype.toString.call() (推荐)
 
 最准确的检测方式，可以区分所有类型。
 

@@ -1,8 +1,8 @@
-## Promise 异步编程
+# Promise 异步编程
 
 Promise 是 ES6 引入的异步编程解决方案，比传统的解决方案（回调函数）更合理、更强大。它解决了回调地狱（Callback Hell）的问题，使异步代码更加清晰和易于维护。
 
-### 核心概念
+## 1. 核心概念
 
 Promise 对象代表一个异步操作的最终完成（或失败）及其结果值。它有三种状态：
 
@@ -17,7 +17,7 @@ Promise 对象代表一个异步操作的最终完成（或失败）及其结果
 
 一旦状态改变，就不会再变，任何时候都可以得到这个结果。
 
-### 基本用法
+## 2. 基本用法
 
 Promise 是一个构造函数，接受一个函数作为参数，该函数的两个参数分别是 `resolve` 和 `reject`。
 
@@ -47,9 +47,9 @@ myPromise
   });
 ```
 
-### 静态方法
+## 3. 静态方法
 
-#### 1. Promise.all()
+### (1). Promise.all()
 
 用于将多个 Promise 实例，包装成一个新的 Promise 实例。
 
@@ -66,7 +66,7 @@ Promise.all([p1, p2, p3]).then((results) => {
 });
 ```
 
-#### 2. Promise.race()
+### (2). Promise.race()
 
 同样是将多个 Promise 实例包装成一个新的 Promise 实例。
 
@@ -81,7 +81,7 @@ Promise.race([p1, p2]).then((result) => {
 });
 ```
 
-#### 3. Promise.allSettled() (ES2020)
+### (3). Promise.allSettled() (ES2020)
 
 等待所有实例都返回结果，不管是 Fulfilled 还是 Rejected。
 
@@ -99,7 +99,7 @@ Promise.allSettled([Promise.resolve("成功"), Promise.reject("失败")]).then(
 );
 ```
 
-### async / await
+## 4. async / await
 
 ES2017 引入了 async/await，它是 Promise 的语法糖，使异步代码看起来像同步代码。
 
@@ -120,7 +120,7 @@ async function asyncCall() {
 asyncCall();
 ```
 
-### 常见面试题：红绿灯
+## 5.常见面试题：红绿灯
 
 使用 Promise 实现红绿灯交替闪烁：红灯 3s，绿灯 2s，黄灯 1s。
 

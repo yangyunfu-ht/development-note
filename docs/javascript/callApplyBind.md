@@ -12,7 +12,7 @@
 
 ## 2. 详细对比
 
-### call
+### (1). call
 
 - **语法**: `func.call(thisArg, arg1, arg2, ...)`
 - **参数**: 第一个参数是 `this` 指向的对象，后续参数是传递给函数的参数列表。
@@ -28,7 +28,7 @@ const person = { name: "Alice" };
 greet.call(person, "Hello", "!"); // 输出: Hello, Alice!
 ```
 
-### apply
+### (2). apply
 
 - **语法**: `func.apply(thisArg, [argsArray])`
 - **参数**: 第一个参数是 `this` 指向的对象，第二个参数是一个数组（或类数组对象）。
@@ -44,7 +44,7 @@ const person = { name: "Bob" };
 greet.apply(person, ["Hi", "."]); // 输出: Hi, Bob.
 ```
 
-### bind
+### (3). bind
 
 - **语法**: `func.bind(thisArg, arg1, arg2, ...)`
 - **参数**: 与 `call` 类似，第一个参数是 `this` 指向，后续是预置参数（柯里化）。
@@ -63,7 +63,7 @@ boundGreet("?"); // 输出: Hey, Charlie?
 
 ## 3. 使用场景
 
-### 使用 `apply` 进行数组操作
+### (1). 使用 `apply` 进行数组操作
 
 利用 `apply` 将数组展开为参数列表的特性（ES6 之前常用）。
 
@@ -81,7 +81,7 @@ Array.prototype.push.apply(arr1, arr2);
 // ES6 写法: arr1.push(...arr2)
 ```
 
-### 使用 `call` 进行类型判断
+### (2). 使用 `call` 进行类型判断
 
 利用 `Object.prototype.toString` 来判断精确的数据类型。
 
@@ -95,7 +95,7 @@ getType(null); // "Null"
 getType({}); // "Object"
 ```
 
-### 使用 `call` 将类数组转数组
+### (3). 使用 `call` 将类数组转数组
 
 ```javascript
 function list() {
@@ -106,7 +106,7 @@ function list() {
 // ES6 写法: Array.from(arguments) 或 [...arguments]
 ```
 
-### 使用 `bind` 处理回调函数中的 `this`
+### (4). 使用 `bind` 处理回调函数中的 `this`
 
 在 React 类组件或事件监听中常用。
 

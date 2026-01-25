@@ -361,3 +361,64 @@ const fn3 = (x) => x - 1;
 const res = compose(fn1, fn2, fn3)(3);
 console.log(res); // 14
 ```
+
+## 11. 将数字每千分位添加逗号
+
+```javascript
+function addComma(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// 测试
+console.log(addComma(123456789)); // "123,456,789"
+```
+
+## 11. for in 和 for of 区别
+
+```javascript
+const obj = { a: 1, b: 2, c: 3 };
+
+// for in 遍历对象的可枚举属性（包括原型链上的）
+for (const key in obj) {
+  console.log(key, obj[key]);
+}
+// 输出:
+// a 1
+// b 2
+// c 3
+
+// for of 遍历可迭代对象（如数组、字符串、Set、Map 等）
+const arr = [1, 2, 3];
+for (const item of arr) {
+  console.log(item);
+}
+// 输出:
+// 1
+// 2
+// 3
+```
+
+## 12. 实现promise.all
+
+```javascript
+function promiseAll(promises) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let count = 0;
+
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then((res) => {
+          results[index] = res;
+          count++;
+          if (count === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  });
+}
+```

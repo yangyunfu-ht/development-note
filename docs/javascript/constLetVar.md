@@ -1,4 +1,4 @@
-## var、let 和 const 的区别
+# var、let 和 const 的区别
 
 在 ES6（ECMAScript 2015）之前，JavaScript 只有 `var` 一种声明变量的方式。ES6 引入了 `let` 和 `const`，为 JavaScript 带来了块级作用域变量声明。
 
@@ -13,7 +13,7 @@
 | **必须初始化**    | 否                       | 否                       | 是                           |
 | **挂载到 Window** | 是                       | 否                       | 否                           |
 
-### 1. 作用域（Scope）
+## 1. 作用域（Scope）
 
 - **var**：是**函数作用域**。如果在函数外部声明，它是全局变量；如果在函数内部声明，它在整个函数内有效，忽略块级结构（如 `if`, `for`）。
 - **let / const**：是**块级作用域**。只在声明它们的代码块 `{}` 内有效。
@@ -32,7 +32,7 @@ if (true) {
 console.log(b); // ReferenceError: b is not defined
 ```
 
-### 2. 变量提升（Hoisting）
+## 2. 变量提升（Hoisting）
 
 - **var**：变量声明会被提升到作用域顶部，并初始化为 `undefined`。
 - **let / const**：变量声明也会被提升，但在声明语句执行前，处于**暂时性死区（Temporal Dead Zone, TDZ）**，访问会报错。
@@ -47,7 +47,7 @@ console.log(y); // ReferenceError: Cannot access 'y' before initialization
 let y = 10;
 ```
 
-### 3. 重复声明
+## 3. 重复声明
 
 - **var**：允许在同一作用域内重复声明同一个变量。
 - **let / const**：不允许在同一作用域内重复声明。
@@ -60,7 +60,7 @@ let b = 1;
 let b = 2; // SyntaxError: Identifier 'b' has already been declared
 ```
 
-### 4. Const 的特殊性
+## 4. Const 的特殊性
 
 `const` 声明的是常量，一旦声明必须立即初始化，且不能重新赋值。
 
@@ -77,7 +77,7 @@ console.log(user.name); // "Bob"
 user = { name: "Charlie" }; // TypeError: Assignment to constant variable.
 ```
 
-### 最佳实践
+## 5. 最佳实践
 
 1.  **默认使用 `const`**：如果变量不需要重新赋值，一律使用 `const`。这能保证数据不被意外修改。
 2.  **需要修改时用 `let`**：例如循环计数器或状态标记。

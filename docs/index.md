@@ -8,19 +8,19 @@ hero:
   actions:
     - theme: brand
       text: 开始阅读
-      link: /javascript
+      link: /javascript/constLetVar
     - theme: alt
       text: GitHub 源码
-      link: https://github.com/
+      link: https://github.com/yangyunfu-ht/development-note.git
 
 features:
   - title: Javascript
     details: Web 的核心语言，支持交互式和动态内容。
-    link: /javascript
+    link: /javascript/constLetVar
 
   - title: Typescript
     details: JavaScript 的强类型超集，编译为纯 JavaScript。
-    link: /typescript
+    link: /typescript/tsConfig
 
   - title: Css3
     details: 层叠样式表语言的最新演进，用于网页样式设计。

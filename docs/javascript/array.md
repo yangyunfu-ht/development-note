@@ -1,8 +1,8 @@
-## JavaScript 数组方法
+# JavaScript 数组方法
 
 JavaScript 的 `Array.prototype` 提供了大量操作数组的方法。根据**是否修改原数组**这一核心特性，可以将它们分为两类：**Mutator Methods（修改器方法）** 和 **Accessor/Iteration Methods（访问/迭代方法）**。
 
-### 1. 会修改原数组的方法 (Mutator Methods)
+## 1. 会修改原数组的方法 (Mutator Methods)
 
 这些方法会直接改变调用它们的数组对象本身。
 
@@ -27,7 +27,7 @@ arr.splice(1, 1, "a"); // arr: [1, 'a', 3] (索引1开始删除1个，插入'a')
 arr.reverse(); // arr: [3, 'a', 1]
 ```
 
-### 2. 不会修改原数组的方法 (Accessor Methods)
+## 2. 不会修改原数组的方法 (Accessor Methods)
 
 这些方法不会改变原数组，而是返回一个新的数组或特定的值。
 
@@ -50,7 +50,7 @@ const part = nums.slice(0, 1); // nums: [1, 2, 3], part: [1]
 const str = nums.join("-"); // nums: [1, 2, 3], str: "1-2-3"
 ```
 
-### 3. 迭代方法 (Iteration Methods)
+## 3. 迭代方法 (Iteration Methods)
 
 大多数迭代方法**不会**修改原数组（除非在回调函数中显式地修改它）。
 
@@ -79,7 +79,7 @@ const evens = list.filter((x) => x % 2 === 0); // [2, 4]
 const sum = list.reduce((acc, curr) => acc + curr, 0); // 10
 ```
 
-### 4. ES2023 新增非破坏性方法
+## 4. ES2023 新增非破坏性方法
 
 ES2023 引入了一组对应于 `sort`, `reverse`, `splice` 的新方法，它们**不会修改原数组**，而是返回一个新的副本。
 
@@ -96,7 +96,7 @@ console.log(origin); // [3, 1, 2] (未改变)
 console.log(sorted); // [1, 2, 3] (新数组)
 ```
 
-### 5. 手写实现Array.prototype.map
+## 5. 手写实现Array.prototype.map
 
 ```javascript
 Array.prototype.myMap = function (callback, thisArg) {
@@ -136,7 +136,7 @@ const nums = [1, 2, 3];
 const doubled = nums.myMap((x) => x * 2); // [2, 4, 6]
 ```
 
-### 6、手写实现Array.prototype.filter
+## 6. 手写实现Array.prototype.filter
 
 ```javascript
 Array.prototype.myFilter = function (callback, thisArg) {
@@ -165,7 +165,7 @@ const nums = [1, 2, 3, 4, 5];
 const evens = nums.myFilter((x) => x % 2 === 0); // [2, 4]
 ```
 
-### 7、手写实现Array.prototype.reduce
+## 7. 手写实现Array.prototype.reduce
 
 ```javascript
 Array.prototype.myReduce = function (callback, initialValue) {

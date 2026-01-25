@@ -2,7 +2,7 @@
 
 在现代前端工程（如使用 Vite 创建的项目）中，通常会将 TypeScript 配置文件拆分为多个部分，以适应不同的运行环境（浏览器端和 Node.js 端）。`tsconfig.app.json` 专门用于配置**浏览器端应用代码**的编译选项。
 
-## 为什么需要 tsconfig.app.json？
+## 1. 为什么需要 tsconfig.app.json？
 
 传统的单一 `tsconfig.json` 难以同时完美支持前端代码（DOM 环境）和构建工具代码（Node 环境）。
 
@@ -17,7 +17,7 @@
 
 ---
 
-## Vue 3 + Vite 配置示例
+## 2. Vue 3 + Vite 配置示例
 
 以下是 Vue 3 + Vite 项目中典型的 `tsconfig.app.json` 配置：
 
@@ -59,7 +59,7 @@
 
 ---
 
-## React + Vite 配置示例
+## 3. React + Vite 配置示例
 
 以下是 React + Vite 项目中典型的 `tsconfig.app.json` 配置：
 
@@ -105,7 +105,7 @@
 
 ---
 
-## 常见问题
+## 4. 常见问题
 
 ### 1. 为什么我的 TS 报错 "Cannot find module '...'"？
 

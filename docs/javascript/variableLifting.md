@@ -1,10 +1,10 @@
-## 变量提升 (Hoisting)
+# 变量提升 (Hoisting)
 
 变量提升（Hoisting）是 JavaScript 引擎中的一种机制，它会将变量声明和函数声明移动到当前作用域的顶部。
 
 这意味着你可以在声明变量或函数之前使用它们。
 
-### 1. var 的提升
+## 1. var 的提升
 
 使用 `var` 声明的变量会被提升，但**初始化不会被提升**。在声明语句之前访问该变量，其值为 `undefined`。
 
@@ -20,7 +20,7 @@ console.log(foo); // "Hello"
 // console.log(foo);
 ```
 
-### 2. 函数声明的提升
+## 2. 函数声明的提升
 
 **函数声明**会被完整地提升到作用域顶部。你可以在声明函数之前调用它。
 
@@ -32,7 +32,7 @@ function sayHi() {
 }
 ```
 
-### 3. 函数表达式与提升
+## 3. 函数表达式与提升
 
 **函数表达式**（Function Expression）通常是赋值给一个变量。它们的行为遵循变量提升的规则。
 
@@ -48,7 +48,7 @@ var sayHello = function () {
 
 如果使用 `let` 或 `const` 声明函数表达式，同样受暂时性死区（TDZ）限制，无法在声明前调用。
 
-### 4. let 和 const 的提升
+## 4. let 和 const 的提升
 
 `let` 和 `const` 声明的变量**也会被提升**，但它们不会被初始化。
 
@@ -59,7 +59,7 @@ console.log(bar); // ReferenceError: Cannot access 'bar' before initialization
 let bar = "World";
 ```
 
-### 5. 优先级规则
+## 5. 优先级规则
 
 当函数声明和变量声明同名时，**函数声明的优先级高于变量声明**。函数声明会覆盖同名的变量声明（但不会覆盖变量赋值）。
 

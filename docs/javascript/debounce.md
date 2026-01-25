@@ -1,8 +1,8 @@
-## 防抖(debounce)
+# 防抖(debounce)
 
 防抖（Debounce）是前端开发中常用的性能优化技术。它的核心思想是：**在事件被触发 n 秒后再执行回调，如果在这 n 秒内又被触发，则重新计时。**
 
-### 为什么需要防抖？
+## 1. 为什么需要防抖？
 
 在前端开发中，某些事件会被频繁触发，例如：
 
@@ -12,7 +12,7 @@
 
 如果这些事件的回调函数中包含复杂的计算或网络请求，频繁触发会导致浏览器性能下降，甚至卡顿。防抖可以有效地减少回调函数的执行次数。
 
-### 原理图解
+## 2. 原理图解
 
 假设我们设置防抖时间为 500ms：
 
@@ -20,9 +20,9 @@
 2. 如果在 500ms 内没有再次触发，倒计时结束，执行回调。
 3. 如果在 500ms 内（比如 200ms 时）再次触发，则取消上一次计时，重新开始计时 500ms。
 
-### 代码实现
+## 3. 代码实现
 
-### 基础版本
+### (1). 基础版本
 
 这是最简单的防抖实现，包含基本的延时执行逻辑。
 
@@ -50,7 +50,7 @@ function debounce(fn, delay) {
 }
 ```
 
-#### 立即执行版本
+### (2). 立即执行版本
 
 有时候我们需要事件触发时立即执行一次，然后等待 n 秒后才能再次触发执行。
 
@@ -83,7 +83,7 @@ function debounce(fn, delay, immediate = false) {
 }
 ```
 
-#### TypeScript 版本
+### (3). TypeScript 版本
 
 带有完善类型声明的实现，利用泛型保留参数类型。
 
@@ -121,9 +121,9 @@ function debounce<T extends (...args: any[]) => any>(
 }
 ```
 
-### 使用示例
+## 4. 使用示例
 
-#### 1. 搜索框联想
+### (1). 搜索框联想
 
 ```javascript
 const searchInput = document.getElementById("search");
@@ -139,7 +139,7 @@ const debouncedSearch = debounce(handleSearch, 500);
 searchInput.addEventListener("input", debouncedSearch);
 ```
 
-#### 2. 窗口调整大小
+### (2). 窗口调整大小
 
 ```javascript
 function handleResize() {
@@ -150,7 +150,7 @@ function handleResize() {
 window.addEventListener("resize", debounce(handleResize, 300));
 ```
 
-### 推荐库
+## 5. 推荐库
 
 在实际项目中，建议使用成熟的工具库，如 [Lodash](https://lodash.com/docs/4.17.15#debounce)。
 

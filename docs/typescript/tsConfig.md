@@ -2,7 +2,7 @@
 
 `tsconfig.json` 文件用于指定 TypeScript 项目的根文件和编译选项。
 
-## 顶层配置 (Top Level)
+## 1. 顶层配置 (Top Level)
 
 | 字段          | 类型     | 含义       | 作用                                 |
 | :------------ | :------- | :--------- | :----------------------------------- |
@@ -13,9 +13,9 @@
 | references    | object[] | 项目引用   | 指定引用的项目（用于复合项目）。     |
 | compileOnSave | boolean  | 保存时编译 | IDE 选项，保存文件时是否自动编译。   |
 
-## 编译器选项 (Compiler Options)
+## 2.编译器选项 (Compiler Options)
 
-### 基础选项 (Basic Options)
+### (1). 基础选项 (Basic Options)
 
 | 选项               | 类型     | 默认值   | 含义                                                   |
 | :----------------- | :------- | :------- | :----------------------------------------------------- |
@@ -37,7 +37,7 @@
 | downlevelIteration | boolean  | false    | 对迭代器进行降级处理 (针对旧目标环境)。                |
 | isolatedModules    | boolean  | false    | 将每个文件作为单独的模块编译。                         |
 
-### 严格类型检查 (Strict Type-Checking Options)
+### (2). 严格类型检查 (Strict Type-Checking Options)
 
 | 选项                         | 类型    | 默认值 | 含义                                                   |
 | :--------------------------- | :------ | :----- | :----------------------------------------------------- |
@@ -50,7 +50,7 @@
 | noImplicitThis               | boolean | false  | 当 `this` 表达式值为 `any` 类型时报错。                |
 | alwaysStrict                 | boolean | false  | 以严格模式 (`use strict`) 解析并为每个源文件生成代码。 |
 
-### 模块解析 (Module Resolution Options)
+### (3). 模块解析 (Module Resolution Options)
 
 | 选项                         | 类型     | 默认值 | 含义                                         |
 | :--------------------------- | :------- | :----- | :------------------------------------------- |
@@ -65,7 +65,7 @@
 | preserveSymlinks             | boolean  | false  | 不解析符号链接的真实路径。                   |
 | allowUmdGlobalAccess         | boolean  | false  | 允许在模块中访问 UMD 全局变量。              |
 
-### 附加检查 (Additional Checks)
+### (4). 附加检查 (Additional Checks)
 
 | 选项                       | 类型    | 默认值 | 含义                                  |
 | :------------------------- | :------ | :----- | :------------------------------------ |
@@ -74,7 +74,7 @@
 | noImplicitReturns          | boolean | false  | 每个分支都必须有返回值。              |
 | noFallthroughCasesInSwitch | boolean | false  | 报告 switch 语句的 fallthrough 错误。 |
 
-### 实验性选项 (Experimental Options)
+### (5). 实验性选项 (Experimental Options)
 
 | 选项                   | 类型    | 默认值 | 含义                            |
 | :--------------------- | :------ | :----- | :------------------------------ |
