@@ -99,6 +99,7 @@ SSR 是解决 SPA SEO 问题的最彻底方案。
 对于纯 SPA，必须动态修改页面的 Title 和 Description。
 
 - **Vue**: 使用 `vue-meta` 或 Vue Router 守卫。
+
   ```javascript
   // router.js
   router.beforeEach((to, from, next) => {
@@ -113,6 +114,7 @@ SSR 是解决 SPA SEO 问题的最彻底方案。
     next();
   });
   ```
+
 - **React**: 使用 `react-helmet`。
 
 ### 3.5 生成 Sitemap (站点地图)
@@ -136,7 +138,7 @@ SSR 是解决 SPA SEO 问题的最彻底方案。
 
 ## 5. 面试回答要点
 
-1.  **解释现状**：首先说明 SPA 因为是客户端渲染，爬虫（特别是百度）抓取不到内容，且首屏慢，影响 SEO。
-2.  **首选方案**：如果是新项目且重视 SEO，首选 **SSR (Nuxt/Next)** 或 **SSG**。
-3.  **次选方案**：如果是老项目改造，推荐 **预渲染 (Prerender)**，成本最低。
-4.  **辅助手段**：无论哪种方案，都需要配合 **动态 Meta 标签**、**Sitemap**、**HTTPS**、**语义化 HTML** 等常规 SEO 优化手段。
+1. **解释现状**：首先说明 SPA 因为是客户端渲染，爬虫（特别是百度）抓取不到内容，且首屏慢，影响 SEO。
+2. **首选方案**：如果是新项目且重视 SEO，首选 **SSR (Nuxt/Next)** 或 **SSG**。
+3. **次选方案**：如果是老项目改造，推荐 **预渲染 (Prerender)**，成本最低。
+4. **辅助手段**：无论哪种方案，都需要配合 **动态 Meta 标签**、**Sitemap**、**HTTPS**、**语义化 HTML** 等常规 SEO 优化手段。

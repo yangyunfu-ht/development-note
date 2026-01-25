@@ -58,13 +58,13 @@ CSS 兼容性的核心工具是 **PostCSS** 及其插件 **Autoprefixer**。它�
 
 Vite 内置了对 PostCSS 的支持，我们只需要安装插件并配置即可。
 
-**步骤 1: 安装依赖**
+### 步骤 1: 安装依赖
 
 ```bash
 pnpm add -D autoprefixer
 ```
 
-**步骤 2: 配置 PostCSS**
+### 步骤 2: 配置 PostCSS
 
 方式一：创建 `postcss.config.js` (推荐)
 
@@ -99,13 +99,13 @@ export default defineConfig({
 
 Webpack 需要显式配置 loader 链来处理 PostCSS。
 
-**步骤 1: 安装依赖**
+#### 步骤 1: 安装 Webpack 相关依赖
 
 ```bash
 pnpm add -D postcss postcss-loader autoprefixer css-loader style-loader
 ```
 
-**步骤 2: 配置 webpack.config.js**
+### 步骤 2: 配置 webpack.config.js
 
 注意 loader 的执行顺序是从右到左（从下到上）：`style-loader` <- `css-loader` <- `postcss-loader`。
 
@@ -167,10 +167,10 @@ Vite 默认构建目标是支持原生 ESM 的现代浏览器。如果需要支�
 
 **工作原理**:
 
-1.  构建出两套代码：
+1. 构建出两套代码：
     - **Modern Bundle**: 针对现代浏览器，使用 `<script type="module">` 加载，体积小，效率高。
     - **Legacy Bundle**: 针对旧版浏览器，包含完整的 Polyfill 和语法降级代码，使用 `<script nomodule>` 加载。
-2.  浏览器根据是否支持 `module` 自动选择加载哪套代码。
+2. 浏览器根据是否支持 `module` 自动选择加载哪套代码。
 
 **安装**:
 

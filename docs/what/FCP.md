@@ -45,6 +45,7 @@ HTTP/2 支持多路复用，可以并行传输多个文件，极大提升了加�
   - **作用**: 告诉浏览器这个资源是**当前页面**高优先级需要的，应该立即下载，但暂时不执行。
   - **场景**: 关键 CSS、首屏大图 (LCP 优化关键)、字体文件、核心 JS 脚本。
   - **示例**:
+
     ```html
     <!-- 预加载首屏大图 -->
     <link rel="preload" href="hero-image.jpg" as="image" />
@@ -66,6 +67,7 @@ HTTP/2 支持多路复用，可以并行传输多个文件，极大提升了加�
   - **作用**: 提前与第三方域名建立连接（DNS 解析 + TCP 握手 + TLS 协商）。
   - **场景**: CDN 域名、API 域名。
   - **示例**:
+
     ```html
     <link rel="preconnect" href="https://cdn.example.com" />
     <link rel="dns-prefetch" href="https://cdn.example.com" />
@@ -295,18 +297,18 @@ module.exports = {
 
 为了最大化首屏加载速度，请遵循以下资源预加载原则：
 
-1.  **字体必预加载 (`preload`)**:
+1. **字体必预加载 (`preload`)**:
     字体文件通常在 CSS 解析后才被发现，容易导致文字闪烁或不可见。使用 `preload` 提前加载字体是提升体验的低成本高收益手段。
     - _注意_: 字体预加载必须带 `crossorigin` 属性。
 
-2.  **LCP 图片预加载 (`preload`)**:
+2. **LCP 图片预加载 (`preload`)**:
     如果首屏最大的内容元素（LCP）是图片（如 Banner 图），务必对其进行 `preload`。这能显著降低 LCP 时间。
 
-3.  **CDN 预连接 (`preconnect`)**:
+3. **CDN 预连接 (`preconnect`)**:
     对于存放静态资源的 CDN 域名，使用 `preconnect` 提前建立连接（DNS+TCP+TLS），减少后续请求的延迟。
 
-4.  **按需预取 (`prefetch`)**:
+4. **按需预取 (`prefetch`)**:
     对于用户下一步**极可能**访问的路由（如登录页跳转到首页，或列表页跳转到详情页），利用 `prefetch` 在浏览器空闲时加载对应资源。
 
-5.  **避免过度预加载**:
+5. **避免过度预加载**:
     `preload` 会占用首屏加载的带宽。只对**首屏关键路径**上必然会用到的资源使用 `preload`。其他资源交给浏览器自动调度或使用 `prefetch`。
