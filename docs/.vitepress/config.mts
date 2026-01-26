@@ -179,6 +179,10 @@ export default defineConfig({
                 text: "TS 增量编译详解",
                 link: "/typescript/IncrementalCompilation",
               },
+              {
+                text: "TypeScript 高频面试题",
+                link: "/typescript/code",
+              },
             ],
           },
           {
@@ -193,6 +197,10 @@ export default defineConfig({
               {
                 text: "DOM 事件机制",
                 link: "/html5/event",
+              },
+              {
+                text: "HTML5 高频面试题",
+                link: "/html5/code",
               },
             ],
           },
@@ -225,6 +233,14 @@ export default defineConfig({
                 text: "CSS 盒模型",
                 link: "/css3/box",
               },
+              {
+                text: "BFC 详解",
+                link: "/css3/bfc",
+              },
+              {
+                text: "CSS 高频面试题",
+                link: "/css3/code",
+              },
             ],
           },
         ],
@@ -240,6 +256,14 @@ export default defineConfig({
               {
                 text: "Vue2 与 Vue3 区别",
                 link: "/vue3/different",
+              },
+              {
+                text: "Vue3 组合式 API 详解",
+                link: "/vue3/setupApi",
+              },
+              {
+                text: "Vue3 组件通信汇总",
+                link: "/vue3/componentPost",
               },
               {
                 text: "Vue3 nextTick 原理",
@@ -268,6 +292,22 @@ export default defineConfig({
                 text: "函数式组件 vs 类组件",
                 link: "/react/functionClass",
               },
+              {
+                text: "React Hooks 详解",
+                link: "/react/hook",
+              },
+              {
+                text: "React 组件通信汇总",
+                link: "/react/componentPost",
+              },
+              {
+                text: "React 高频面试题",
+                link: "/react/code",
+              },
+              {
+                text: "请求竞态 (Race Condition)",
+                link: "/react/requestCompetition",
+              },
             ],
           },
           {
@@ -278,6 +318,10 @@ export default defineConfig({
               {
                 text: "生命周期与配置",
                 link: "/miniprogram/LifeCycle",
+              },
+              {
+                text: "小程序高频面试题",
+                link: "/miniprogram/code",
               },
             ],
           },
@@ -298,7 +342,13 @@ export default defineConfig({
           { text: "monorepo(单体仓库)", link: "/what/monorepo" },
           { text: "Tree Shaking 详解", link: "/what/treeShaking" },
           { text: "修改 npm 包代码", link: "/what/npm" },
+          { text: "package.json 详解", link: "/what/package" },
           { text: "移动端适配方案", link: "/what/mobile" },
+          { text: "懒加载 (Lazy Load)", link: "/what/lazyLoad" },
+          {
+            text: "React/Vue 跨端原理",
+            link: "/what/crossDevelopment",
+          },
           {
             text: "Vite",
             link: "/vite/config",
@@ -322,7 +372,15 @@ export default defineConfig({
               { text: "Loader 与 Plugin", link: "/webpack/loaderPlugin" },
             ],
           },
-          { text: "Rollup", link: "/rollup/" },
+          {
+            text: "Rollup",
+            link: "/rollup/",
+            collapsed: true,
+            items: [
+              { text: "基础概念", link: "/rollup/" },
+              { text: "配置详解", link: "/rollup/config" },
+            ],
+          },
           { text: "Prettier(代码风格)", link: "/prettier/" },
           { text: "Eslint(代码质量)", link: "/eslint/" },
           { text: "CommitLint(git提交规范)", link: "/commitLint/" },

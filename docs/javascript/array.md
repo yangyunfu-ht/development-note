@@ -125,7 +125,10 @@ Array.prototype.myMap = function (callback, thisArg) {
   const result = [];
   for (let i = 0; i < len; i++) {
     if (i in O) {
-      A[i] = callback.call(thisArg, O[i], i, O);
+      // 检查索引是否存在于数组中
+      // 作用：确保只处理数组中存在的元素，避免处理稀疏数组中的空槽
+      // 示例：[1, 2, 3, , 5].map(x => x * 2) // [2, 4, 6, undefined, 10]
+      result[i] = callback.call(thisArg, O[i], i, O);
     }
   }
   return result;
@@ -169,22 +172,40 @@ const evens = nums.myFilter((x) => x % 2 === 0); // [2, 4]
 
 ```javascript
 Array.prototype.myReduce = function (callback, initialValue) {
+  // 基本校验
   if (this == null) {
     throw new TypeError("Array.prototype.myReduce called on null or undefined");
   }
   if (typeof callback !== "function") {
     throw new TypeError(callback + " is not a function");
   }
+  // 转换为对象并获取长度
   const O = Object(this);
   const len = O.length >>> 0;
-  let accumulator = initialValue;
+
+  // 初始化累加器
+  let accumulator;
+  let startIndex = 0;
+
+  // 情况1: 提供了初始值
+  if (arguments.length >= 2) {
+    accumulator = initialValue;
+  } else {
+    // 情况2: 未提供初始值， 需要从数组中获取第一个有效值
+    let k = 0;
+    while (k < len && !(k in O)) {
+      k++;
+    }
+    if (k >= len) {
+      throw new TypeError("Reduce of empty array with no initial value");
+    }
+    accumulator = O[k];
+    startIndex = k + 1;
+  }
+
   for (let i = 0; i < len; i++) {
     if (i in O) {
-      if (accumulator === undefined) {
-        accumulator = O[i];
-      } else {
-        accumulator = callback.call(undefined, accumulator, O[i], i, O);
-      }
+      accumulator = callback.call(undefined, accumulator, O[i], i, O);
     }
   }
   return accumulator;

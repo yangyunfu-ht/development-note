@@ -28,25 +28,25 @@ features:
 
   - title: Html5
     details: 超文本标记语言的最新版本，用于构建 Web 内容。
-    link: /html5
+    link: /html5/tag
 
   - title: Vue3
     details: 用于构建用户界面的渐进式 JavaScript 框架。
-    link: /vue3
+    link: /vue3/different
 
   - title: React
     details: 用于构建基于组件的用户界面的 JavaScript 库。
-    link: /react
+    link: /react/functionClass
 
   - title: MiniProgram
     details: 在微信或支付宝等宿主应用中运行的轻量级应用程序。
-    link: /miniprogram
+    link: /miniprogram/lifeCycle
 
   - title: Vite
     details: 下一代前端工具链，具有即时服务启动和极速 HMR。
-    link: /vite
+    link: /vite/config
 
   - title: Webpack
     details: 用于现代 JavaScript 应用程序的静态模块打包工具。
-    link: /webpack
+    link: /webpack/config
 ---

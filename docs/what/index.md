@@ -10,7 +10,7 @@
 
 前端工程化的核心可以总结为四个方面：
 
-### 2.1 模块化 (Modularity)
+### (1) 模块化 (Modularity)
 
 将复杂的系统拆分为独立的、可复用的模块。
 
@@ -18,7 +18,7 @@
 - **CSS 模块化**：CSS Modules, Less/Sass/Stylus, Tailwind CSS。
 - **资源模块化**：图片、字体等资源也作为模块处理（如 Webpack 中的 file-loader）。
 
-### 2.2 组件化 (Componentization)
+### (2) 组件化 (Componentization)
 
 将 UI 页面拆分为独立的组件，每个组件包含自己的结构（HTML）、样式（CSS）和逻辑（JS）。
 
@@ -26,7 +26,7 @@
 - **封装性**：内部实现对外部不可见，只通过 Props 和 Events 通信。
 - **常见框架**：Vue (.vue), React (.jsx/.tsx)。
 
-### 2.3 规范化 (Standardization)
+### (3) 规范化 (Standardization)
 
 制定并执行统一的开发规范，减少沟通成本，降低维护难度。
 
@@ -36,7 +36,7 @@
 - **Git 提交规范**：CommitLint, Husky, Conventional Commits。
 - **文档规范**：注释规范, README, 技术文档。
 
-### 2.4 自动化 (Automation)
+### (4) 自动化 (Automation)
 
 将重复、繁琐的手工操作交给机器自动完成。
 
@@ -49,13 +49,13 @@
 
 前端工程化贯穿了软件开发的整个生命周期：
 
-### 3.1 开发阶段 (Development)
+### (1) 开发阶段 (Development)
 
 - **脚手架工具**：Create React App, Vue CLI, Vite。快速生成项目模板。
 - **本地服务器**：提供热更新 (HMR)、Mock 数据接口、代理解决跨域。
 - **包管理器**：npm, yarn, pnpm。管理项目依赖。
 
-### 3.2 构建阶段 (Build)
+### (2) 构建阶段 (Build)
 
 - **编译/转译**：Babel (ES6+ -> ES5), TypeScript -> JavaScript, Less/Sass -> CSS。
 - **打包/合并**：将多个文件合并为一个或多个 Bundle。
@@ -63,14 +63,14 @@
 - **Tree Shaking**：移除未使用的代码。
 - **Code Splitting**：代码分割，按需加载，优化首屏性能。
 
-### 3.3 部署阶段 (Deployment)
+### (3) 部署阶段 (Deployment)
 
 - **CI/CD**：持续集成/持续部署。代码提交后自动运行测试、构建、上传。
 - **Web 服务器**：Nginx, Apache。配置反向代理、Gzip、缓存策略。
 - **CDN 分发**：将静态资源部署到 CDN 节点，加速访问。
 - **Docker/K8s**：容器化部署，保证环境一致性。
 
-### 3.4 监控阶段 (Monitoring)
+### (4) 监控阶段 (Monitoring)
 
 - **错误监控**：Sentry。捕获 JS 运行时错误、Promise 异常。
 - **性能监控**：Lighthouse, Web Vitals。监控 FCP, LCP, CLS 等性能指标。
