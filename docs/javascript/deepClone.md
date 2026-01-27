@@ -106,7 +106,8 @@ function deepClone(target, map = new WeakMap()) {
 
   // 5. 递归拷贝属性
   for (const key in target) {
-    if (target.hasOwnProperty(key)) {
+    // 保证只拷贝实例属性，不拷贝原型链属性
+    if (Object.prototype.hasOwnProperty.call(target, key)) {
       cloneTarget[key] = deepClone(target[key], map);
     }
   }

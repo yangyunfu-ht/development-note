@@ -1,10 +1,37 @@
 import { defineConfig } from "vitepress";
+// import { withMermaid } from "vitepress-plugin-mermaid";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
   title: "Markdown Note",
   description: "构建你的前端知识体系",
+  vite: {
+    server: {
+      port: 5000,
+      open: true,
+    }
+  },
+  // Mermaid 配置：优化 UI 展现
+  // mermaid: {
+  //   theme: "base", // 使用 base 模式以便自定义颜色
+  //   themeVariables: {
+  //     // 核心：适配 VitePress 官方绿
+  //     primaryColor: "#3eaf7c", // 节点背景色
+  //     primaryTextColor: "#fff", // 节点文字颜色
+  //     primaryBorderColor: "#3eaf7c", // 节点边框颜色
+  //     lineColor: "#2c3e50", // 线条颜色
+  //     secondaryColor: "#42b983",
+  //     tertiaryColor: "#f9f9f9",
+  //     fontSize: "16px",
+  //     fontFamily: "Inter, var(--vp-font-family-base)",
+  //   },
+  //   // 开启集成，确保在构建时正确处理
+  //   // mermaidConfig: {
+  //   //   startOnLoad: true,
+  //   //   securityLevel: "loose",
+  //   // },
+  // },
   // TODO: 如果部署到 github pages，请设置 base 为你的仓库名称，例如 "/my-repo/"
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
