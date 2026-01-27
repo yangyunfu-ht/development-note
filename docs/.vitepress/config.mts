@@ -43,10 +43,8 @@ export default defineConfig({
       {
         text: "工程化",
         items: [
-          {
-            text: "Vite",
-            link: "/vite/config",
-          },
+          { text: "Vite", link: "/vite/config" },
+          { text: "npm run dev/build 详解", link: "/what/npmRundev" },
           { text: "Webpack", link: "/webpack/config" },
           { text: "Prettier", link: "/prettier/" },
           { text: "Eslint", link: "/eslint/" },
@@ -349,6 +347,7 @@ export default defineConfig({
             text: "React/Vue 跨端原理",
             link: "/what/crossDevelopment",
           },
+          { text: "npm run dev/build 详解", link: "/what/npmRundev" },
           {
             text: "Vite",
             link: "/vite/config",
