@@ -78,17 +78,17 @@ Vue 3 在 Composition API 中提供了对应的生命周期钩子（Hooks），�
 
 `<script setup>` 是 Vue 3 引入的编译时语法糖：
 
-1.  **更简洁**: 顶层的变量、函数、组件导入无需 `return` 或 `components` 注册，直接在模板中使用。
-2.  **更好的 TS 支持**: 可以使用纯 TypeScript 声明 props 和 emits (`defineProps`, `defineEmits`)。
-3.  **运行时性能更好**: 模板会被编译成渲染函数，避免了中间的代理开销。
-4.  **更好的 IDE 类型推导**: 配合 Volar 插件提供极佳的开发体验。
+1. **更简洁**: 顶层的变量、函数、组件导入无需 `return` 或 `components` 注册，直接在模板中使用。
+2. **更好的 TS 支持**: 可以使用纯 TypeScript 声明 props 和 emits (`defineProps`, `defineEmits`)。
+3. **运行时性能更好**: 模板会被编译成渲染函数，避免了中间的代理开销。
+4. **更好的 IDE 类型推导**: 配合 Volar 插件提供极佳的开发体验。
 
 ## 7. Vue 3 的性能优化有哪些？
 
-1.  **静态提升 (Static Hoisting)**: 将静态节点（不包含动态绑定的节点）提升到渲染函数之外，避免每次更新都重新创建。
-2.  **补丁标记 (Patch Flags)**: 在编译时分析动态内容，生成 Patch Flag（如 TEXT, CLASS, PROPS），Diff 算法运行时只比较带有 Flag 的部分，跳过静态内容。
-3.  **事件缓存 (Event Cache)**: 缓存事件处理函数，避免每次更新都视为 props 变化。
-4.  **Tree Shaking**: 核心 API（如 `nextTick`, `keep-alive`）按需引入，减少打包体积。
+1. **静态提升 (Static Hoisting)**: 将静态节点（不包含动态绑定的节点）提升到渲染函数之外，避免每次更新都重新创建。
+2. **补丁标记 (Patch Flags)**: 在编译时分析动态内容，生成 Patch Flag（如 TEXT, CLASS, PROPS），Diff 算法运行时只比较带有 Flag 的部分，跳过静态内容。
+3. **事件缓存 (Event Cache)**: 缓存事件处理函数，避免每次更新都视为 props 变化。
+4. **Tree Shaking**: 核心 API（如 `nextTick`, `keep-alive`）按需引入，减少打包体积。
 
 ## 8. 什么是 Teleport？
 
@@ -112,7 +112,7 @@ Vue 3 在 Composition API 中提供了对应的生命周期钩子（Hooks），�
 
 除了 Props / Emits，Vue 3 提供了：
 
-1.  **Provide / Inject**: 依赖注入，用于跨层级组件通信。
-2.  **Expose**: 使用 `defineExpose` 显式暴露组件内部的属性或方法（`<script setup>` 默认是关闭的）。
-3.  **Mitt**: Vue 3 移除了 `$on`, `$off`, `$once`，不再支持 EventBus。推荐使用第三方库 `mitt` 实现事件总线。
-4.  **Attrs**: `$attrs` 现在包含了 `class` 和 `style`，且移除了 `$listeners`（合并到了 `$attrs` 中）。
+1. **Provide / Inject**: 依赖注入，用于跨层级组件通信。
+2. **Expose**: 使用 `defineExpose` 显式暴露组件内部的属性或方法（`<script setup>` 默认是关闭的）。
+3. **Mitt**: Vue 3 移除了 `$on`, `$off`, `$once`，不再支持 EventBus。推荐使用第三方库 `mitt` 实现事件总线。
+4. **Attrs**: `$attrs` 现在包含了 `class` 和 `style`，且移除了 `$listeners`（合并到了 `$attrs` 中）。

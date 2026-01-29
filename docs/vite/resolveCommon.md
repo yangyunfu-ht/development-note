@@ -141,6 +141,7 @@ const module = await import("./module.js");
    ```
 
 2. **使用 `* as` 语法**：
+
    ```javascript
    import * as dep from "dep";
    console.log(dep.default || dep);

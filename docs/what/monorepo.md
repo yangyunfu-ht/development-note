@@ -25,19 +25,19 @@ root/
 
 Monorepo 的出现主要是为了解决 Polyrepo 在多项目协作时遇到的痛点：
 
-1.  **代码复用困难 (Code Sharing Friction)**
+1. **代码复用困难 (Code Sharing Friction)**
     - **Polyrepo**: 如果 `web-app-1` 想复用 `ui-lib` 的代码，必须先将 `ui-lib` 发布到 NPM，然后在 `web-app-1` 中升级依赖版本。流程繁琐（修改 -> 发包 -> 更新依赖），调试困难。
     - **Monorepo**: 直接在本地引用源码，修改 `ui-lib` 后，`web-app-1` 能够立即感知并生效，无需发包。
 
-2.  **依赖版本不一致 (Dependency Hell)**
+2. **依赖版本不一致 (Dependency Hell)**
     - **Polyrepo**: `Project A` 使用 React v16，`Project B` 使用 React v17。随着时间推移，维护多个项目的依赖版本一致性变得极难，导致重复打包、版本冲突等问题。
     - **Monorepo**: 可以在根目录统一管理 `devDependencies`（如 TypeScript, ESLint, Jest），确保所有子项目使用相同的工具链和版本。
 
-3.  **工程配置割裂**
+3. **工程配置割裂**
     - **Polyrepo**: 每个项目都有自己的 `tsconfig.json`, `.eslintrc`, CI 脚本。当需要升级构建工具或规范时，需要在 N 个仓库中逐一修改。
     - **Monorepo**: 共享配置，一次修改，所有项目生效。
 
-4.  **原子性提交缺失 (Lack of Atomic Commits)**
+4. **原子性提交缺失 (Lack of Atomic Commits)**
     - **Polyrepo**: 这是一个经典场景——你修改了 `API` 库的接口，同时需要修改使用该接口的 `Frontend` 和 `Backend` 项目。在 Polyrepo 中，你无法在一个 Commit 中完成这三个修改，这可能导致 CI 挂掉或版本不兼容。
     - **Monorepo**: 你可以在一个 Commit 中同时修改库文件和调用该库的业务代码，保证了变更的原子性。
 

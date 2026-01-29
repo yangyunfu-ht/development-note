@@ -25,8 +25,8 @@ Tree Shaking 依赖于 **ES Modules (ESM)** 的静态结构特性。
 
 ### 3.1 前提条件
 
-1.  **使用 ES Modules**：确保你的代码和依赖库使用 `import/export` 语法。
-2.  **构建模式**：通常只在生产环境构建（Production Build）时生效。
+1. **使用 ES Modules**：确保你的代码和依赖库使用 `import/export` 语法。
+2. **构建模式**：通常只在生产环境构建（Production Build）时生效。
 
 ### 3.2 在 Webpack 中使用
 

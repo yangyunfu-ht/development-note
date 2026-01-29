@@ -87,6 +87,7 @@
 ### 2. 根目录的 `tsconfig.json` 是如何引用它的？
 
 - 在根目录的 `tsconfig.json` 中，通过 `references` 字段引用：
+
   ```json
   {
     "files": [],
@@ -96,12 +97,15 @@
     ]
   }
   ```
+
   这样 TypeScript 就能知道项目被分成了两个独立的部分，分别应用不同的规则。
 
 ### 3. 如果我有自定义脚本 `scripts/build.ts`，应该加在哪里？
 
 - 应该加在 `tsconfig.node.json` 的 `include` 数组中：
+
   ```json
   "include": ["vite.config.*", "scripts/**/*"]
   ```
+
   因为这些脚本通常也是在 Node 环境下运行的。

@@ -6,10 +6,10 @@ CSS 盒模型是 Web 布局的核心机制。浏览器将页面中的每个元�
 
 一个盒子从内到外分别是：
 
-1.  **Content (内容区域)**: 显示文本、图像等内容的区域。宽高由 `width` 和 `height` 属性设置。
-2.  **Padding (内边距)**: 内容区域周围的透明区域。
-3.  **Border (边框)**: 围绕在内边距和内容外的边框。
-4.  **Margin (外边距)**: 盒子最外层的透明区域，用来隔开其他元素。
+1. **Content (内容区域)**: 显示文本、图像等内容的区域。宽高由 `width` 和 `height` 属性设置。
+2. **Padding (内边距)**: 内容区域周围的透明区域。
+3. **Border (边框)**: 围绕在内边距和内容外的边框。
+4. **Margin (外边距)**: 盒子最外层的透明区域，用来隔开其他元素。
 
 <!-- ![Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/box_model.png) -->
 

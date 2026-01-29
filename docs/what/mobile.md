@@ -44,20 +44,21 @@
 
 **实现步骤**：
 
-1.  **安装依赖**：
+1. **安装依赖**：
 
     ```bash
     npm i amfe-flexible
     npm i postcss-pxtorem -D
     ```
 
-2.  **引入 JS** (在 `main.js` 或入口文件)：
+2. **引入 JS** (在 `main.js` 或入口文件)：
 
     ```javascript
     import "amfe-flexible";
     ```
 
-3.  **配置 PostCSS** (`postcss.config.js`)：
+3. **配置 PostCSS** (`postcss.config.js`)：
+
     ```javascript
     module.exports = {
       plugins: {
@@ -83,13 +84,14 @@
 
 **实现步骤**：
 
-1.  **安装依赖**：
+1. **安装依赖**：
 
     ```bash
     npm i postcss-px-to-viewport -D
     ```
 
-2.  **配置 PostCSS** (`postcss.config.js`)：
+2. **配置 PostCSS** (`postcss.config.js`)：
+
     ```javascript
     module.exports = {
       plugins: {
@@ -178,7 +180,7 @@
 
 **解决方案**：使用 `viewport-fit=cover` 和 CSS `env()` 函数。
 
-1.  **设置 Meta**：
+1. **设置 Meta**：
 
     ```html
     <meta
@@ -187,7 +189,8 @@
     />
     ```
 
-2.  **CSS 适配**：
+2. **CSS 适配**：
+
     ```css
     body {
       padding-top: env(safe-area-inset-top);

@@ -29,6 +29,7 @@ pnpm add -D prettier
   ```
 
 - **检查文件格式**：
+
   ```bash
   npx prettier --check .
   ```

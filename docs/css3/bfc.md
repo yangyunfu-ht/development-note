@@ -12,25 +12,25 @@
 
 只要元素满足下面任一条件，就会触发 BFC：
 
-1.  **根元素**：`<html>` 元素。
-2.  **浮动元素**：`float` 的值不是 `none`。
-3.  **绝对定位元素**：`position` 的值是 `absolute` 或 `fixed`。
-4.  **行内块元素**：`display` 的值是 `inline-block`。
-5.  **表格单元格**：`display` 的值是 `table-cell`，HTML 表格单元格默认为该值。
-6.  **表格标题**：`display` 的值是 `table-caption`，HTML 表格标题默认为该值。
-7.  **`overflow` 不为 `visible`**：`overflow` 的值是 `hidden`、`auto` 或 `scroll`。
-8.  **弹性盒子**：`display` 的值是 `flex` 或 `inline-flex` 的元素的直接子元素（Flex Item）。
-9.  **网格布局**：`display` 的值是 `grid` 或 `inline-grid` 的元素的直接子元素（Grid Item）。
+1. **根元素**：`<html>` 元素。
+2. **浮动元素**：`float` 的值不是 `none`。
+3. **绝对定位元素**：`position` 的值是 `absolute` 或 `fixed`。
+4. **行内块元素**：`display` 的值是 `inline-block`。
+5. **表格单元格**：`display` 的值是 `table-cell`，HTML 表格单元格默认为该值。
+6. **表格标题**：`display` 的值是 `table-caption`，HTML 表格标题默认为该值。
+7. **`overflow` 不为 `visible`**：`overflow` 的值是 `hidden`、`auto` 或 `scroll`。
+8. **弹性盒子**：`display` 的值是 `flex` 或 `inline-flex` 的元素的直接子元素（Flex Item）。
+9. **网格布局**：`display` 的值是 `grid` 或 `inline-grid` 的元素的直接子元素（Grid Item）。
 10. **`display: flow-root`**：这是 CSS3 新增的属性，专门用于无副作用地创建 BFC。
 
 ## BFC 的布局规则（特性）
 
-1.  **内部的 Box 会在垂直方向，一个接一个地放置**。
-2.  **Box 垂直方向的距离由 margin 决定**。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠。
-3.  **每个元素的 margin box 的左边， 与包含块 border box 的左边相接触**（对于从左往右的格式化，否则相反）。即使存在浮动也是如此。
-4.  **BFC 的区域不会与 float box 重叠**。
-5.  **BFC 就是页面上的一个隔离的独立容器**，容器里面的子元素不会影响到外面的元素。
-6.  **计算 BFC 的高度时，浮动元素也参与计算**。
+1. **内部的 Box 会在垂直方向，一个接一个地放置**。
+2. **Box 垂直方向的距离由 margin 决定**。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠。
+3. **每个元素的 margin box 的左边， 与包含块 border box 的左边相接触**（对于从左往右的格式化，否则相反）。即使存在浮动也是如此。
+4. **BFC 的区域不会与 float box 重叠**。
+5. **BFC 就是页面上的一个隔离的独立容器**，容器里面的子元素不会影响到外面的元素。
+6. **计算 BFC 的高度时，浮动元素也参与计算**。
 
 ## BFC 的常见作用与使用场景
 

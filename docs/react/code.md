@@ -77,7 +77,7 @@ Hooks 是 React 16.8 引入的特性，允许在函数组件中使用 state 和�
     - **useMemo**: 缓存计算结果。
     - **useCallback**: 缓存函数引用，防止传递给子组件的 props 变化导致子组件重渲染。
 3. **代码分割 (Code Splitting)**: 使用 `React.lazy` 和 `Suspense` 按需加载组件。
-4.**列表渲染**: 正确使用 `key` 属性（不要用 index 作为 key，除非列表静态且不重排）。
+4. **列表渲染**: 正确使用 `key` 属性（不要用 index 作为 key，除非列表静态且不重排）。
 5. **虚拟列表**: 渲染长列表时使用 `react-window` 或 `react-virtualized`。
 
 ## 8. 为什么列表渲染需要 key？为什么不建议用 index？

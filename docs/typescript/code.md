@@ -8,9 +8,9 @@
   - 都可以用来描述对象或函数的形状。
   - 都可以被扩展（Interface 使用 `extends`，Type 使用交叉类型 `&`）。
 - **不同点**：
-  1.  **声明合并 (Declaration Merging)**: Interface 支持声明合并，同名的 Interface 会自动合并；Type 不支持。
-  2.  **基本类型别名**: Type 可以为基本类型（如 `string`）、联合类型、元组定义别名；Interface 不行。
-  3.  **计算属性**: Type 支持计算属性生成映射类型 (`in keyof`)；Interface 不支持。
+  1. **声明合并 (Declaration Merging)**: Interface 支持声明合并，同名的 Interface 会自动合并；Type 不支持。
+  2. **基本类型别名**: Type 可以为基本类型（如 `string`）、联合类型、元组定义别名；Interface 不行。
+  3. **计算属性**: Type 支持计算属性生成映射类型 (`in keyof`)；Interface 不支持。
 
 **结论**：编写库或第三方类型定义时推荐使用 `Interface`（方便使用者扩展）；定义应用内部的复杂类型（如联合类型、工具类型）时推荐使用 `Type`。
 
@@ -58,10 +58,10 @@ TypeScript 提供了很多内置的工具类型来转换类型：
 
 常见方式：
 
-1.  **typeof**: `if (typeof x === 'string')`
-2.  **instanceof**: `if (x instanceof Date)`
-3.  **in**: `if ('name' in x)`
-4.  **自定义类型守卫 (is 关键字)**:
+1. **typeof**: `if (typeof x === 'string')`
+2. **instanceof**: `if (x instanceof Date)`
+3. **in**: `if ('name' in x)`
+4. **自定义类型守卫 (is 关键字)**:
 
 ```typescript
 function isString(test: any): test is string {
@@ -94,6 +94,7 @@ function handleClick(this: HTMLElement) {
 ## 9. keyof 和 typeof 关键字的作用？
 
 - **keyof**: 索引类型查询操作符。获取某种类型的所有键，返回一个联合类型。
+
   ```typescript
   interface Person {
     name: string;
@@ -101,7 +102,9 @@ function handleClick(this: HTMLElement) {
   }
   type K = keyof Person; // "name" | "age"
   ```
+
 - **typeof**: 在类型上下文中，获取一个变量或对象的类型。
+
   ```typescript
   const p = { name: "Tom", age: 18 };
   type P = typeof p; // { name: string; age: number; }

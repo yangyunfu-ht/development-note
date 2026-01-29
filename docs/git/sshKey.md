@@ -39,9 +39,9 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 系统会提示你确认文件保存路径和设置密码：
 
-1.  **Enter file in which to save the key**: 直接按回车，使用默认路径 (`~/.ssh/id_ed25519`)。
-2.  **Enter passphrase**: 输入密钥密码（可选，推荐留空以实现免密推送）。
-3.  **Enter same passphrase again**: 再次输入密码（如果上一步留空，这里也直接回车）。
+1. **Enter file in which to save the key**: 直接按回车，使用默认路径 (`~/.ssh/id_ed25519`)。
+2. **Enter passphrase**: 输入密钥密码（可选，推荐留空以实现免密推送）。
+3. **Enter same passphrase again**: 再次输入密码（如果上一步留空，这里也直接回车）。
 
 成功后，你会看到类似 "The key's randomart image is..." 的输出。
 
@@ -51,13 +51,13 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
 ### macOS
 
-1.  后台启动 ssh-agent：
+1. 后台启动 ssh-agent：
 
     ```bash
     eval "$(ssh-agent -s)"
     ```
 
-2.  修改 `~/.ssh/config` 文件，以便自动加载密钥到 ssh-agent 并存储密码到钥匙串（Keychain）：
+2. 修改 `~/.ssh/config` 文件，以便自动加载密钥到 ssh-agent 并存储密码到钥匙串（Keychain）：
 
     检查文件是否存在，如果不存在则创建：
 
@@ -76,15 +76,17 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
     _(注：如果你使用的是 `id_rsa`，请将 `id_ed25519` 替换为 `id_rsa`)_
 
-3.  将私钥添加到 ssh-agent：
+3. 将私钥添加到 ssh-agent：
+
     ```bash
     ssh-add --apple-use-keychain ~/.ssh/id_ed25519
     ```
+
     _(注：如果不使用 `--apple-use-keychain` 选项，每次重启可能需要重新添加)_
 
 ### Windows (Git Bash / PowerShell)
 
-1.  后台启动 ssh-agent：
+1. 后台启动 ssh-agent：
 
     **Git Bash:**
 
@@ -100,14 +102,15 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
     Start-Service ssh-agent
     ```
 
-2.  将私钥添加到 ssh-agent：
+2. 将私钥添加到 ssh-agent：
+
     ```bash
     ssh-add ~/.ssh/id_ed25519
     ```
 
 ## 4. 将 SSH 公钥添加到远程仓库 (GitHub/GitLab)
 
-1.  **复制公钥内容**：
+1. **复制公钥内容**：
 
     **macOS:**
 
@@ -123,7 +126,7 @@ ssh-keygen -t ed25519 -C "your_email@example.com"
 
     或者直接用文本编辑器打开 `.pub` 文件并复制所有内容。
 
-2.  **粘贴到 GitHub/GitLab**：
+2. **粘贴到 GitHub/GitLab**：
     - **GitHub**: Settings -> SSH and GPG keys -> New SSH key
     - **GitLab**: User Settings -> SSH Keys -> Add an SSH key
 

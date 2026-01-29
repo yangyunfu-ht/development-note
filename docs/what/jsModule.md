@@ -93,6 +93,7 @@ SeaJS 提出的规范，国内曾一度流行。
   - 结合了 CommonJS 的写法和 AMD 的异步加载。
 
 - **语法**：
+
   ```javascript
   define(function (require, exports, module) {
     var a = require("./a");

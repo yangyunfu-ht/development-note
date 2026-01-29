@@ -16,7 +16,7 @@
 
 Commitlint 负责在提交时校验 Commit Message 格式。最常用的是 [Conventional Commits](https://www.conventionalcommits.org/zh-hans/v1.0.0/) 规范。
 
-### 安装
+### 安装（Commitlint）
 
 ```bash
 pnpm add -D @commitlint/cli @commitlint/config-conventional
@@ -77,6 +77,7 @@ module.exports = {
 
 3. **添加 Commit Msg Hook**
    创建 `.husky/commit-msg` 文件：
+
    ```bash
    npx --no -- commitlint --edit "$1"
    ```
@@ -117,13 +118,13 @@ module.exports = {
 
 为了避免每次提交都检查所有文件，我们使用 Lint-staged 只检查暂存区的文件。
 
-### 安装
+### (1). 安装
 
 ```bash
 pnpm add -D lint-staged
 ```
 
-### 配置
+### (2). 配置
 
 在 `package.json` 中添加配置：
 
@@ -147,13 +148,13 @@ npx lint-staged
 
 为了让开发者更轻松地写出规范的 Commit Message，我们可以使用交互式工具。`cz-git` 是目前 Vue、Vite 等项目都在使用的适配器。
 
-### 安装
+### 1. 安装
 
 ```bash
 pnpm add -D commitizen cz-git
 ```
 
-### 配置
+### 2. 配置
 
 修改 `package.json`，指定适配器：
 

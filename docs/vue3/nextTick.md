@@ -21,9 +21,9 @@ Vue 3 的 `nextTick` 实现主要依赖于 **微任务（Microtask）**。
 
 ### 核心概念
 
-1.  **异步更新队列**：Vue 内部维护了一个队列，用于存储需要更新的组件（副作用函数）。
-2.  **Scheduler（调度器）**：负责管理任务的执行顺序，确保组件更新任务在微任务队列中执行。
-3.  **Promise**：`nextTick` 本质上就是返回一个 `Promise`。
+1. **异步更新队列**：Vue 内部维护了一个队列，用于存储需要更新的组件（副作用函数）。
+2. **Scheduler（调度器）**：负责管理任务的执行顺序，确保组件更新任务在微任务队列中执行。
+3. **Promise**：`nextTick` 本质上就是返回一个 `Promise`。
 
 ### 源码简析 (逻辑抽象)
 
@@ -46,17 +46,17 @@ export function nextTick<T = void>(
 
 当数据变化时：
 
-1.  Vue 会将更新任务（effect）推入 `queue` 队列。
-2.  调用 `queueFlush()` 尝试刷新队列。
-3.  `queueFlush` 会创建一个微任务（通过 `Promise.resolve().then(flushJobs)`）。
-4.  `flushJobs` 负责遍历队列，执行所有的更新任务。
+1. Vue 会将更新任务（effect）推入 `queue` 队列。
+2. 调用 `queueFlush()` 尝试刷新队列。
+3. `queueFlush` 会创建一个微任务（通过 `Promise.resolve().then(flushJobs)`）。
+4. `flushJobs` 负责遍历队列，执行所有的更新任务。
 
 当你调用 `nextTick(fn)` 时：
 
-1.  如果不传回调，它返回一个 Promise。
-2.  Vue 的更新任务已经被推入微任务队列。
-3.  `nextTick` 的回调也会被推入微任务队列。
-4.  由于队列是先进先出的，Vue 的 DOM 更新任务会先执行，然后才会执行 `nextTick` 的回调。
+1. 如果不传回调，它返回一个 Promise。
+2. Vue 的更新任务已经被推入微任务队列。
+3. `nextTick` 的回调也会被推入微任务队列。
+4. 由于队列是先进先出的，Vue 的 DOM 更新任务会先执行，然后才会执行 `nextTick` 的回调。
 
 ### 简易实现模型
 
@@ -113,13 +113,13 @@ console.log("4. 同步代码结束");
 **输出顺序：**
 
 1. 1. 数据改变
-2. 2. 调用 nextTick
-3. 4. 同步代码结束
+2. 1. 调用 nextTick
+3. 1. 同步代码结束
 4. --- 开始更新 DOM ---
 5. DOM 更新 1
 6. DOM 更新 2
 7. --- DOM 更新结束 ---
-8. 3. nextTick 回调执行 (DOM 此时已更新)
+8. 1. nextTick 回调执行 (DOM 此时已更新)
 
 ## 3. Vue 2 vs Vue 3 的区别
 
@@ -128,7 +128,7 @@ console.log("4. 同步代码结束");
 
 ## 总结
 
-1.  `nextTick` 利用了浏览器的 **微任务（Microtask）** 机制。
-2.  Vue 的响应式系统会将 DOM 更新任务推入微任务队列。
-3.  `nextTick` 的回调会被追加到同一个微任务队列的尾部。
-4.  因此，`nextTick` 的回调总是在 DOM 更新完成后执行。
+1. `nextTick` 利用了浏览器的 **微任务（Microtask）** 机制。
+2. Vue 的响应式系统会将 DOM 更新任务推入微任务队列。
+3. `nextTick` 的回调会被追加到同一个微任务队列的尾部。
+4. 因此，`nextTick` 的回调总是在 DOM 更新完成后执行。

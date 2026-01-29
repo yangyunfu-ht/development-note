@@ -123,7 +123,7 @@ const id = sessionStorage.getItem("tempId");
 
 ## 6. 常见面试题：LocalStorage 与 Cookie 的区别？
 
-1.  **存储大小**：Cookie 只有 4KB，LocalStorage 有 5MB。
-2.  **数据交互**：Cookie 会随请求发送到服务器，浪费带宽；LocalStorage 仅在本地存储。
-3.  **生命周期**：Cookie 有过期时间；LocalStorage 是永久存储。
-4.  **操作封装**：LocalStorage 有原生 API (`getItem`/`setItem`)，Cookie 需要手动解析字符串。
+1. **存储大小**：Cookie 只有 4KB，LocalStorage 有 5MB。
+2. **数据交互**：Cookie 会随请求发送到服务器，浪费带宽；LocalStorage 仅在本地存储。
+3. **生命周期**：Cookie 有过期时间；LocalStorage 是永久存储。
+4. **操作封装**：LocalStorage 有原生 API (`getItem`/`setItem`)，Cookie 需要手动解析字符串。

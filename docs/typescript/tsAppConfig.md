@@ -11,9 +11,9 @@
 
 因此，最佳实践是：
 
-1.  **tsconfig.json**：作为入口，使用 `references` 引用其他配置文件。
-2.  **tsconfig.app.json**：负责 `src` 目录下的业务代码。
-3.  **tsconfig.node.json**：负责 `vite.config.ts` 等工具配置文件。
+1. **tsconfig.json**：作为入口，使用 `references` 引用其他配置文件。
+2. **tsconfig.app.json**：负责 `src` 目录下的业务代码。
+3. **tsconfig.node.json**：负责 `vite.config.ts` 等工具配置文件。
 
 ---
 

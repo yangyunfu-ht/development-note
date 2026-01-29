@@ -164,10 +164,10 @@ module.exports = {
 
 ## 5. 最佳实践总结
 
-1.  **统一配置**: 使用 `browserslist` 统一管理目标浏览器范围。
-2.  **按需 Polyfill**: 使用 `@babel/preset-env` 的 `useBuiltIns: 'usage'` 选项，只打包代码中实际用到的 Polyfill，减少包体积。
-3.  **自动化**: 利用 Vite/Webpack 的生态插件（如 `autoprefixer`）自动处理 CSS 兼容性，不要手动写前缀。
-4.  **渐进增强**: 对于极低版本浏览器（如 IE），如果非必要，可以考虑提示用户升级，而不是无限增加 Polyfill 体积。
+1. **统一配置**: 使用 `browserslist` 统一管理目标浏览器范围。
+2. **按需 Polyfill**: 使用 `@babel/preset-env` 的 `useBuiltIns: 'usage'` 选项，只打包代码中实际用到的 Polyfill，减少包体积。
+3. **自动化**: 利用 Vite/Webpack 的生态插件（如 `autoprefixer`）自动处理 CSS 兼容性，不要手动写前缀。
+4. **渐进增强**: 对于极低版本浏览器（如 IE），如果非必要，可以考虑提示用户升级，而不是无限增加 Polyfill 体积。
 
 > **推荐做法**：建议将 PostCSS 配置提取到单独的 `postcss.config.js` 文件中，这样 `webpack.config.js` 中的 loader 配置只需写成 `loader: 'postcss-loader'` 即可，保持配置清洁。
 

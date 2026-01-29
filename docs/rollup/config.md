@@ -170,6 +170,6 @@ export default defineConfig({
 
 ## 最佳实践
 
-1.  **Library 开发**: 推荐同时输出 `esm` (供打包工具使用) 和 `cjs` (供 Node.js 使用) 格式。
-2.  **Tree Shaking**: 确保 package.json 中 `sideEffects: false` 以获得更好的 Tree Shaking 效果。
-3.  **Peer Dependencies**: 将 `react` 等宿主环境提供的库设为 `external`，并在 `peerDependencies` 中声明。
+1. **Library 开发**: 推荐同时输出 `esm` (供打包工具使用) 和 `cjs` (供 Node.js 使用) 格式。
+2. **Tree Shaking**: 确保 package.json 中 `sideEffects: false` 以获得更好的 Tree Shaking 效果。
+3. **Peer Dependencies**: 将 `react` 等宿主环境提供的库设为 `external`，并在 `peerDependencies` 中声明。

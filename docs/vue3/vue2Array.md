@@ -8,8 +8,8 @@ Vue 2 使用 `Object.defineProperty` 将对象的属性转化为 getter/setter�
 
 但是对于数组：
 
-1.  **性能代价大**：如果要拦截数组的索引访问，需要遍历数组的每个索引进行 `defineProperty`，且数组长度经常变化，维护成本极高。
-2.  **API 限制**：`Object.defineProperty` 无法拦截数组原生方法（如 `push`）导致的变化。
+1. **性能代价大**：如果要拦截数组的索引访问，需要遍历数组的每个索引进行 `defineProperty`，且数组长度经常变化，维护成本极高。
+2. **API 限制**：`Object.defineProperty` 无法拦截数组原生方法（如 `push`）导致的变化。
 
 因此，Vue 2 选择**放弃拦截数组索引**，转而**拦截数组的变异方法（Mutation Methods）**。
 
@@ -17,13 +17,13 @@ Vue 2 使用 `Object.defineProperty` 将对象的属性转化为 getter/setter�
 
 Vue 2 重写了 **7 个**会改变原数组的方法：
 
-1.  `push()`
-2.  `pop()`
-3.  `shift()`
-4.  `unshift()`
-5.  `splice()`
-6.  `sort()`
-7.  `reverse()`
+1. `push()`
+2. `pop()`
+3. `shift()`
+4. `unshift()`
+5. `splice()`
+6. `sort()`
+7. `reverse()`
 
 > **注意**：`filter`、`concat`、`slice` 等不会改变原数组的方法没有被重写，它们会返回新数组，这在 Vue 中是支持的（通过替换旧数组）。
 
@@ -31,14 +31,14 @@ Vue 2 重写了 **7 个**会改变原数组的方法：
 
 Vue 2 通过**原型链拦截**的方式实现了方法的重写。
 
-### 核心步骤：
+### 核心步骤
 
-1.  获取数组的原型 `Array.prototype`。
-2.  创建一个继承自 `Array.prototype` 的新对象 `arrayMethods`。
-3.  在 `arrayMethods` 上定义上述 7 个方法。
-4.  将需要响应式的数组实例的 `__proto__` 指向 `arrayMethods`。
+1. 获取数组的原型 `Array.prototype`。
+2. 创建一个继承自 `Array.prototype` 的新对象 `arrayMethods`。
+3. 在 `arrayMethods` 上定义上述 7 个方法。
+4. 将需要响应式的数组实例的 `__proto__` 指向 `arrayMethods`。
 
-### 简易实现代码：
+### 简易实现代码
 
 ```javascript
 // 1. 获取数组原型
